@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Master JavaScript and RegEx with our comprehensive and interactive courses. Access over 81 hours of in-depth tutorials, 520+ practice questions, exclusive projects, and continuous updates. Enroll now and enhance your coding skills in a focused learning environment."
+    />
+    <meta
+      property="og:title"
+      content="Master JavaScript and RegEx with Our Comprehensive Courses"
+    />
+    <meta
+      property="og:description"
+      content="Access over 75 hours of in-depth tutorials, 500+ practice questions, exclusive projects, and continuous updates. Enroll now and enhance your coding skills in a focused learning environment."
+    />
+    <meta
+      property="og:image"
+      content="/assets/images/js-and-regex-course-combo.webp"
+    />
+    <meta property="og:url" content="https://procodrr.com/" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-JLGHBC85XP"
+    ></script>
+    <script type="text/partytown">
+      // @ts-nocheck
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-JLGHBC85XP");
+    </script>
+    <meta name="generator" content="Astro v4.16.18" />
+    <title>Node.js Curriculum</title>
+    <link rel="stylesheet" href="asset/_astro/index.QFcbEBI6.css" />
+    <style>
+      html {
+        font-family: Poppins, sans-serif;
+      }
+      li {
+        cursor: pointer;
+      }
+      .completed {
+        text-decoration: line-through;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      /* ---------- CONTAINER ---------- */
+      #progress-container {
+        max-width: 868px; /* same as Tailwind's max-w-screen-md */
+        margin: 1.5rem auto 1rem; /* mt-6 mb-4 mx-auto */
+        text-align: center;
+        padding: 0 1rem; /* px-4 */
+      }
+
+      /* ---------- PROGRESS TEXT ---------- */
+      #progress-text {
+        font-weight: 600; /* font-semibold */
+        font-size: 1.125rem; /* text-lg */
+        margin-bottom: 0.5rem; /* mb-2 */
+        color: #1f2937; /* text-gray-800 */
+      }
+
+      /* Dark mode simulation (optional, for completeness) */
+      @media (prefers-color-scheme: dark) {
+        #progress-text {
+          color: #f3f4f6; /* dark:text-gray-100 */
+        }
+      }
+
+      /* ---------- PROGRESS WRAPPER (background bar) ---------- */
+      .progress-wrapper {
+        width: 100%;
+        height: 1rem; /* h-4 */
+        background-color: #e5e7eb; /* bg-gray-200 */
+        border-radius: 9999px; /* rounded-full */
+        overflow: hidden;
+      }
+
+      /* Dark mode version */
+      @media (prefers-color-scheme: dark) {
+        .progress-wrapper {
+          background-color: #374151; /* dark:bg-gray-700 */
+        }
+      }
+
+      /* ---------- PROGRESS BAR (green fill) ---------- */
+      #progress-bar {
+        height: 100%;
+        width: 0%;
+        background-color: #22c55e; /* bg-green-500 */
+        border-radius: 9999px;
+        transition: width 0.5s ease; /* duration-500 transition-all */
+      }
+    </style>
+    <script>
+      !(function (w, p, f, c) {
+        if (!window.crossOriginIsolated && !navigator.serviceWorker) return;
+        c = w[p] = Object.assign(w[p] || {}, {
+          lib: "/~partytown/",
+          debug: false,
+        });
+        c[f] = c[f] || [];
+      })(window, "partytown", "forward"); /* Partytown 0.11.0 - MIT QwikDev */
+      const t = { preserveBehavior: !1 },
+        e = (e) => {
+          if ("string" == typeof e) return [e, t];
+          const [n, r = t] = e;
+          return [n, { ...t, ...r }];
+        },
+        n = Object.freeze(
+          ((t) => {
+            const e = new Set();
+            let n = [];
+            do {
+              Object.getOwnPropertyNames(n).forEach((t) => {
+                "function" == typeof n[t] && e.add(t);
+              });
+            } while ((n = Object.getPrototypeOf(n)) !== Object.prototype);
+            return Array.from(e);
+          })()
+        );
+      !(function (t, r, o, i, a, s, c, l, d, p, u = t, f) {
+        function h() {
+          f ||
+            ((f = 1),
+            "/" ==
+              (c = (s.lib || "/~partytown/") + (s.debug ? "debug/" : ""))[0] &&
+              ((d = r.querySelectorAll('script[type="text/partytown"]')),
+              i != t
+                ? i.dispatchEvent(new CustomEvent("pt1", { detail: t }))
+                : ((l = setTimeout(
+                    v,
+                    (null == s ? void 0 : s.fallbackTimeout) || 1e4
+                  )),
+                  r.addEventListener("pt0", w),
+                  a
+                    ? y(1)
+                    : o.serviceWorker
+                    ? o.serviceWorker
+                        .register(c + (s.swPath || "partytown-sw.js"), {
+                          scope: c,
+                        })
+                        .then(function (t) {
+                          t.active
+                            ? y()
+                            : t.installing &&
+                              t.installing.addEventListener(
+                                "statechange",
+                                function (t) {
+                                  "activated" == t.target.state && y();
+                                }
+                              );
+                        }, console.error)
+                    : v())));
+        }
+        function y(e) {
+          (p = r.createElement(e ? "script" : "iframe")),
+            (t._pttab = Date.now()),
+            e ||
+              ((p.style.display = "block"),
+              (p.style.width = "0"),
+              (p.style.height = "0"),
+              (p.style.border = "0"),
+              (p.style.visibility = "hidden"),
+              p.setAttribute("aria-hidden", !0)),
+            (p.src =
+              c +
+              "partytown-" +
+              (e ? "atomics.js?v=0.11.0" : "sandbox-sw.html?" + t._pttab)),
+            r.querySelector(s.sandboxParent || "body").appendChild(p);
+        }
+        function v(n, o) {
+          for (
+            w(),
+              i == t &&
+                (s.forward || []).map(function (n) {
+                  const [r] = e(n);
+                  delete t[r.split(".")[0]];
+                }),
+              n = 0;
+            n < d.length;
+            n++
+          )
+            ((o = r.createElement("script")).innerHTML = d[n].innerHTML),
+              (o.nonce = s.nonce),
+              r.head.appendChild(o);
+          p && p.parentNode.removeChild(p);
+        }
+        function w() {
+          clearTimeout(l);
+        }
+        (s = t.partytown || {}),
+          i == t &&
+            (s.forward || []).map(function (r) {
+              const [o, { preserveBehavior: i }] = e(r);
+              (u = t),
+                o.split(".").map(function (e, r, o) {
+                  var a;
+                  u = u[o[r]] =
+                    r + 1 < o.length
+                      ? u[o[r]] || ((a = o[r + 1]), n.includes(a) ? [] : {})
+                      : (() => {
+                          let e = null;
+                          if (i) {
+                            const { methodOrProperty: n, thisObject: r } = ((
+                              t,
+                              e
+                            ) => {
+                              let n = t;
+                              for (let t = 0; t < e.length - 1; t += 1)
+                                n = n[e[t]];
+                              return {
+                                thisObject: n,
+                                methodOrProperty:
+                                  e.length > 0 ? n[e[e.length - 1]] : void 0,
+                              };
+                            })(t, o);
+                            "function" == typeof n &&
+                              (e = (...t) => n.apply(r, ...t));
+                          }
+                          return function () {
+                            let n;
+                            return (
+                              e && (n = e(arguments)),
+                              (t._ptf = t._ptf || []).push(o, arguments),
+                              n
+                            );
+                          };
+                        })();
+                });
+            }),
+          "complete" == r.readyState
+            ? h()
+            : (t.addEventListener("DOMContentLoaded", h),
+              t.addEventListener("load", h));
+      })(window, document, navigator, top, window.crossOriginIsolated);
+      ((e) => {
+        e.addEventListener("astro:before-swap", (e) => {
+          let r = document.body.querySelector("iframe[src*='/~partytown/']");
+          if (r) e.newDocument.body.append(r);
+        });
+      })(document);
+    </script>
+  </head>
+  <body class="bg-gray-50 dark:bg-[#27292d] dark:text-white">
+    <header
+      class="top-0 z-20 bg-gray-50/70 backdrop-blur-md dark:bg-[#27292d]/70"
+    >
+      <div
+        class="mx-auto flex max-w-screen-md items-center justify-between p-4"
+      >
+        <a href="https://procodrr.com/#" class="flex items-baseline invisible">
+          <svg
+            class="w-5 md:w-6"
+            viewbox="0 0 113 132"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.778 9.03755e-06C7.58767 2.9372e-05 0.199219 4.19356 0.199219 13.0796C0.199219 21.9656 6.98861 26.1592 13.778 26.1592H71.4879C71.4879 26.1592 85.8654 28.5555 85.8654 42.933C85.8654 57.3104 71.4879 59.7067 71.4879 59.7067H54.9137C46.7265 59.7067 39.9371 63.7005 39.9371 72.7863C39.9371 81.872 47.725 85.8658 54.9137 85.8658H71.4879C87.8623 85.8658 112.224 71.0891 112.224 42.933C112.224 14.7769 87.8623 9.03755e-06 71.4879 9.03755e-06H13.778Z"
+              fill="#795CED"
+            ></path>
+            <path
+              d="M8.33206e-08 52.1187V119.214C0 125.005 6.19035 131.994 13.1794 131.994C20.1685 131.994 26.3589 126.802 26.3589 119.214V52.1187C26.3589 45.1296 20.7676 39.3386 13.1794 39.3386C5.59128 39.3386 8.33206e-08 46.3277 8.33206e-08 52.1187Z"
+              fill="#459BD5"
+            ></path>
+          </svg>
+          <span
+            class="hidden select-none text-2xl font-bold leading-4 media320:block md:text-2xl"
+            >roCodrr</span
+          >
+        </a>
+        <div class="flex items-center gap-8">
+          <nav class="flex items-center space-x-6">
+            <!-- <a
+				  class="hover:text-primary-400 font-bold hover:underline"
+				  href="https://app.procodrr.com/web/lite/store/663f4d7b36a7144e6b969cda"
+				  >All Courses</a
+				> -->
+          </nav>
+          <div class="opacity-80 hover:opacity-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewbox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="cursor-pointer"
+              id="sun-icon"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewbox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="hidden cursor-pointer"
+              id="moon-icon"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- 🟩 Progress Bar Container -->
+    <div id="progress-container">
+      <p id="progress-text">Progress: 0%</p>
+
+      <div class="progress-wrapper">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+
+    <section class="max-w-screen-md mx-auto px-4 mt-2 mb-4">
+      <div class="space-x-2">
+        <h1 class="text-3xl font-bold md:text-5xl">
+          <a
+            class="hover:underline"
+            href="https://app.procodrr.com/web/checkout/66c86939c0a286ccc32c0d8b?couponcode=PROCODRRNODEJS&purchaseNow=true"
+          >
+            Backend with Node
+            <img
+              src="https://procodrr.com//assets/icons/node-icon-green.svg"
+              alt="Node.js Logo"
+              class="h-12 inline"
+          /></a>
+        </h1>
+      </div>
+      <div class="fundamentals-of-nodejs">
+        <details class="mt-4" open>
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 1: Introduction to Backend and Node.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/1_prerequisites"
+                class="hover:underline"
+              >
+                Prerequisites
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/2_what-is-backend"
+                class="hover:underline"
+              >
+                What Is Backend & Client Server Architecture?
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/3_cli-vs-gui"
+                class="hover:underline"
+              >
+                CLI vs GUI
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/4_what-is-nodejs"
+                class="hover:underline"
+              >
+                What Is Node.js and What Is It Used For?
+              </a>
+            </li>
+            <li>Installing Node.js</li>
+            <li>Running Our First Node.js Code</li>
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/7_why-do-we-need-nodejs"
+                class="hover:underline"
+              >
+                Why Do We Need Node.js and How Is It Different From JavaScript
+                in Browser?
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://procodrr.com/./section-1_introduction/8_history-of-nodejs"
+                class="hover:underline"
+              >
+                A Brief History of Node.js
+              </a>
+            </li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 2: Basics of Terminal
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Terminal and Shell</li>
+            <li>Basic Shell Commands (echo, pwd, whoami)</li>
+            <li>Navigating the File System (cd)</li>
+            <li>Listing Directory Contents (ls)</li>
+            <li>
+              Creating, Copying, Moving, and Deleting Files and Directories
+              (touch, mkdir, cp, mv, rm, rmdir)
+            </li>
+            <li>Viewing and Editing Files with Commands (cat, nano, vim)</li>
+            <li>What Is Prompt in Terminal?</li>
+            <li>Configuring Our Terminal Using .bashrc File</li>
+            <li>Using Aliases for Command Shortcuts (alias)</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 3: Basics of OS
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>What Is CPU, Processor, and Core?</li>
+            <li>What Is OS and Kernel?</li>
+            <li>What Is a Process?</li>
+            <li>What Is Thread, Concurrency, and Parallelism?</li>
+            <li>Can a Process Exist Without a Thread?</li>
+            <li>Debugging Worker Threads</li>
+            <li>What Is an Environment Variable?</li>
+            <li>Setting and Using Environment Variables</li>
+            <li>Installing Windows Subsystem for Linux (WSL)</li>
+            <li>Understanding the Path System: Windows vs. Linux Explained</li>
+            <li>What are Executable Files?</li>
+            <li>Managing File Permissions</li>
+            <li>How Commands Get Executed?</li>
+            <li>Important Methods and Properties of The Process Object</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 4: Fundamentals of Node.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Module System in Node.js</li>
+            <li>Introduction to Common JS Module System</li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >module.exports</code
+              >
+              VS
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >exports</code
+              >
+            </li>
+            <li>module Object</li>
+            <li>Module Wrapper Function</li>
+            <li>Custom Require Function</li>
+            <li>ES6 Modules</li>
+            <li>Accessing filename and dirname in ES6 Modules</li>
+            <li>Why Different Module Systems?</li>
+            <li>Difference Between Common.js and ES6 Modules</li>
+            <li>Different Types of Modules</li>
+            <li>NPM and NPM Modules</li>
+            <li>Creating and Publishing NPM Modules</li>
+            <li>Understanding package.json File in Depth</li>
+            <li>What is Shebang?</li>
+            <li>Library VS CLI Packages and Local VS Global Packages</li>
+            <li>How npx Works?</li>
+            <li>What is npx?</li>
+            <li>Introduction to FS Module</li>
+            <li>Word Counter CLI Project</li>
+            <li>Writing to a File Using Node.js</li>
+            <li>Node.js File Operations: Rename, Delete, Move, Copy & More</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 5: Data Representation in Computing
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Data Representation in Computing</li>
+            <li>Decimal Number System</li>
+            <li>Octal Number System</li>
+            <li>Hexadecimal Number System</li>
+            <li>Binary Number System</li>
+            <li>Introducing Programmer's Calculator</li>
+            <li>Digital Data Uints</li>
+            <li>Binary Data on Physical Level</li>
+            <li>Why DO We Use Decimal System?</li>
+            <li>Character Sets vs Character Encodings (ASCII and Unicode)</li>
+            <li>Understanding UTF-8 in Depth</li>
+            <li>What are Unicode Planes?</li>
+            <li>UTF-8 vs UTF-16 vs UTF-32</li>
+            <li>
+              Byte Order Mark (BOM) and Endianness (Big Endian & Little Endian)
+            </li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 6: Mastering Buffers - Handling Binary Data in Node.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Buffers</li>
+            <li>ArrayBuffer in JavaScript</li>
+            <li>Signed and Unsigned Values</li>
+            <li>Reading and Writing to Array Buffers</li>
+            <li>Writing Multi-Byte Data</li>
+            <li>Typed Arrays</li>
+            <li>
+              Transferring Array Buffer Data from Memory to Disk and Network
+            </li>
+            <li>Buffer in Node.js</li>
+            <li>Alloc VS AllocUnsafe</li>
+            <li>Buffer Pool in Node.js</li>
+            <li>Buffer Methods and Properties</li>
+            <li>Practical Use of Buffers</li>
+            <li>Limitations of Buffers</li>
+            <li>Base-64 Encoding</li>
+            <li>Base-64 in Node.js</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 7: Event-Driven Architecture and EventEmitter in Node.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>What is an I/O Operation?</li>
+            <li>What is Async I/O?</li>
+            <li>Introduction to Event-Driven Architecture</li>
+            <li>The EventEmitter Class</li>
+            <li>Creating and Emitting Events</li>
+            <li>EventEmitter Methods</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 8: Node.js Streams - Handling Data Flow like a Pro
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Streams</li>
+            <li>Types Of Streams in Node.js</li>
+            <li>Readable Streams</li>
+            <li>Different States of Readable Streams</li>
+            <li>Internal Buffer of Readable Streams</li>
+            <li>More about Readable Streams</li>
+            <li>Writable Streams</li>
+            <li>Backpressure and Internal Buffer of Writable Streams</li>
+            <li>Closing Writable Streams</li>
+            <li>States of Writable Streams</li>
+            <li>Piping Streams</li>
+            <li>Piping Using Pipeline</li>
+            <li>Duplex, Transform and Passthrough Streams</li>
+            <li>Data Streams</li>
+            <li>Piping and Redirection of Data Streams</li>
+            <li>Writing 1 Lakh Numbers</li>
+            <li>Why Streams Are So Fast?</li>
+            <li>What is a File Descriptor?</li>
+            <li>Reading File with File Descriptor</li>
+            <li>Opening Files in Different Modes</li>
+            <li>Writing to a File with File Descriptor</li>
+            <li>Write One Lakh Numbers Faster than Streams</li>
+            <li>Implementing Internal Buffer in our Custom Stream</li>
+            <li>Handling Files Using Promises</li>
+            <li>Working with Streams using Promises</li>
+            <li>How Browsers use Streams?</li>
+            <li>Streams in JavaScript</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 9: Basics of Computer Networking
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Why Should We Learn Networking?</li>
+            <li>What is Computer Networking?</li>
+            <li>Story of The Internet</li>
+            <li>Story of DNS</li>
+            <li>Story of World Wide Web</li>
+            <li>Important Networking Devices</li>
+            <li>Types of Network</li>
+            <li>Creating Our Own LAN</li>
+            <li>Creating Our Own WAN</li>
+            <li>How Internet Comes to Our Homes?</li>
+            <li>How does Mobile Internet Work?</li>
+            <li>Understanding IPv4 Addresses in Depth</li>
+            <li>Dynamic vs Static IP Address</li>
+            <li>Private vs Public IP Address</li>
+            <li>Benefits and Drawbacks of Public and Private IP Addresses</li>
+            <li>How to get Public IP Adresss?</li>
+            <li>Turning Our Laptop into a Public Server</li>
+            <li>Running Multiples Severs on our Laptop</li>
+            <li>Understanding Domain Name System (DNS)</li>
+            <li>Connecting Our IP Address with a Domain Name</li>
+            <li>How DNS Servers Work?</li>
+            <li>DNS Hijacking</li>
+            <li>Understanding IPv6 Addresses</li>
+            <li>Turning Our Mobile Phone into a Public Server</li>
+            <li>What are Port Numbers?</li>
+            <li>Inspecting Port Numbers with Wireshark</li>
+            <li>What are Network Interfaces?</li>
+            <li>What is MAC Address?</li>
+            <li>What is Firewall?</li>
+            <li>Understanding OSI Model</li>
+            <li>Understanding TCP/IP Model</li>
+            <li>Network Topologies</li>
+            <li>TCP and UDP: The Backbone of the Internet</li>
+            <li>Remote Terminal Access Using SSH</li>
+            <li>Transferring files using SCP</li>
+            <li>SSH Public and Private Keys</li>
+            <li>Connecting to Multiple SSH Servers</li>
+            <li>Creating AWS Account</li>
+            <li>Understanding AWS EC2 Instance</li>
+            <li>AWS Cost Management</li>
+            <li>More Topics to Learn</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 10: Networking with Core Node.js Modules
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Networking Capabilities of Node.js</li>
+            <li>Creating UDP Server in Node.js</li>
+            <li>What is Socket?</li>
+            <li>Transferring Files Using UDP</li>
+            <li>Creating TCP Server in Node.js</li>
+            <li>Creating TCP Client using Node.js</li>
+            <li>Handling Multiple TCP Clients</li>
+            <li>Transferring Files Using TCP</li>
+            <li>Creating HTTP Server using Net Module</li>
+            <li>Understanding HTTP Headers</li>
+            <li>Important Response Headers</li>
+            <li>Controlling Data Transfer Speeds</li>
+            <li>Inspecting TCP Data Packets in Wireshark</li>
+            <li>Why We Await Twice When Making a Fetch Call?</li>
+            <li>Uploading Files</li>
+            <li>Creating HTTP Server Using HTTP Module</li>
+            <li>HTTP Request Methods</li>
+            <li>HTTP Response Status Codes</li>
+            <li>Creating HTTP Client</li>
+            <li>Anatomy of HTTP Request and Response</li>
+            <li>Creating a Web Server</li>
+            <li>Creating Online Storage Platform Like Google Drive</li>
+            <li>
+              Implementing Preview and Download Feature in Our Storage App
+            </li>
+            <li>Client-Side vs Server-Side Rendering</li>
+            <li>Separating Our Client-Side and Server-Side Code</li>
+            <li>Implementing File Upload with Progress</li>
+            <li>Adding Delete Functionality</li>
+            <li>Implementing Rename Functionality</li>
+            <li>Making Our App Live on Internet</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 11: Building RESTful CRUD APIs with Express.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Intro to Express.js</li>
+            <li>How Express Works Behind the Scenes?</li>
+            <li>What is Middleware in Express?</li>
+            <li>Handling Different HTTP Methods in Express</li>
+            <li>Difference Between Route and Request URL</li>
+            <li>
+              Adding Global Middleware with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >app.use()</code
+              >
+              Method
+            </li>
+            <li>Adding Route-Specific Middleware</li>
+            <li>Serving Static Files using Express</li>
+            <li>Sending JSON using Express</li>
+            <li>Making File Storage App in Express</li>
+            <li>Dynamic Routing in Express</li>
+            <li>Handling File Uploads in Express</li>
+            <li>What is CORS?</li>
+            <li>Understanding Preflight Request</li>
+            <li>
+              Adding Single-Level Nested Directory Support in Our Storage App
+            </li>
+            <li>Adding Multi-Level Nested Directory Support</li>
+            <li>Adding Directory Creation Functionality</li>
+            <li>Understanding Path Traversal Vulnerability</li>
+            <li>Fixing Vulnerability with Path Module</li>
+            <li>Organizing Routes using Express Router</li>
+            <li>Understanding the Problem with Our Code</li>
+            <li>Creating Virtual File System</li>
+            <li>Adding Directory Support in Our VFS</li>
+            <li>Integrating VFS API in Our UI</li>
+            <li>Adding Nested Directory Feature in Our VFS</li>
+            <li>Adding Directory Rename and Delete Functionality</li>
+            <li>Understanding REST API Principles</li>
+            <li>Error Handling in Express</li>
+            <li>Handling File Uploads Using Multer</li>
+            <li>Showing Upload Progress While Using Multer in Backend</li>
+            <li>Adding Basic User Registration Functionality</li>
+            <li>Overview of New UI of Our App</li>
+            <li>What are Cookies?</li>
+            <li>Setting Cookies from Server</li>
+            <li>Implementing Simple Login Functionality</li>
+            <li>Providing User Specific File Access</li>
+            <li>Adding Logout and User Profile Functionality</li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >res.download()</code
+              >
+              Method
+            </li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >app.route()</code
+              >
+              Method to Clean Our Code
+            </li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >router.param()</code
+              >
+              Method
+            </li>
+            <li>What is HTTP Redirection and How Does it Work?</li>
+            <li>Understanding Different Types of Form Data</li>
+            <li>Difference Between Extended True and False</li>
+            <li>Nested Dynamic Routes</li>
+            <li>RegEx in Routes</li>
+            <li>Using Arrays to Define Multiple Routes</li>
+            <li>Express v4 vs v5</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 12: Mastering Database Fundamentals with MongoDB
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction To Database</li>
+            <li>Types Of Databases</li>
+            <li>Introduction To MongoDB</li>
+            <li>Understanding Mongo Shell</li>
+            <li>Installing MongoDB Server</li>
+            <li>MongoDB Fundamentals</li>
+            <li>Creating Documents In MongoDB</li>
+            <li>Reading Data In MongoDB</li>
+            <li>Inspecting MongoDB Data Packages</li>
+            <li>Update Operation In MongoDB</li>
+            <li>Delete Operation In MongoDB</li>
+            <li>Datatypes In MongoDB</li>
+            <li>Object Id Datatype</li>
+            <li>Different Number Types</li>
+            <li>MongoDB Datatypes In Practice</li>
+            <li>BSON Types In MongoDB</li>
+            <li>Where Data Is Stored</li>
+            <li>Configuring Our MongoDB Server</li>
+            <li>Accessing Our MongoDB Server From Anywhere In The World</li>
+            <li>Running MongoShell Scripts in JS Files</li>
+            <li>What is MongoDB Playground?</li>
+            <li>MongoDB in Node.js</li>
+            <li>MongoDB CRUD Operations in Node.js</li>
+            <li>Understanding Cursors in MongoDB</li>
+            <li>Cursor Methods in MongoDB</li>
+            <li>Batch Size in MongoDB</li>
+            <li>Projection in MongoDB</li>
+            <li>Limits of MongoDB</li>
+            <li>MongoDB Setup in Our Storage App</li>
+            <li>Integrating Database in User Routes</li>
+            <li>Integrating Database in Directory Routes</li>
+            <li>Integrating Database in File Routes</li>
+            <li>Performing Bulk Operations in MongoDB</li>
+            <li>Implementing Recursive Directory Delete Functionality</li>
+            <li>
+              Why
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >ObjectId()</code
+              >
+              Is Not a String?
+            </li>
+            <li>
+              Fixing
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >ObjectId()</code
+              >
+              Validation
+            </li>
+            <li>Understanding Application Architecture</li>
+            <li>Ordered Inserts in MongoDB</li>
+            <li>What Is Upsert in MongoDB?</li>
+            <li>Running Commands in MongoDB</li>
+            <li>Operators in MongoDB</li>
+            <li>What Is Schema?</li>
+            <li>Adding Basic Schema Validation in MongoDB</li>
+            <li>Creating a New Collection with Validation Enabled</li>
+            <li>Understanding JSON Schema Validation</li>
+            <li>Validation Action VS Validation Level</li>
+            <li>Finding Invalid Documents in a Collection</li>
+            <li>Adding Schema Validation in Our Storage App</li>
+            <li>Handling Database Validation Errors in Our App</li>
+            <li>What Are Transactions in Database?</li>
+            <li>Implementing Transaction in Code</li>
+            <li>ACID Properties of a Transaction</li>
+            <li>Relational vs. Non-Relational Databases: Key Differences</li>
+            <li>
+              Embedded vs. Referenced Documents: Choosing the Right Data Model
+            </li>
+            <li>
+              Understanding One-to-One, One-to-Many, and Many-to-Many
+              Relationships
+            </li>
+            <li>
+              Backup & Restore Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongodump</code
+              >
+              and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongoresotre</code
+              >
+              for Backup
+            </li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongoimport</code
+              >
+              and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongoexport</code
+              >
+              to Export and Import JSON or CSV Data
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongoimport</code
+              >
+              VS
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >mongoexport</code
+              >: When to Use What?
+            </li>
+            <li>Securing MongoDB: Authentication and Authorization</li>
+            <li>Enabling Auth in MongoDB Replica Set</li>
+            <li>Installing MongoDB On AWS EC2 Ubuntu Instance</li>
+            <li>Deploying MongoDB on EC2</li>
+            <li>Exploring MongoDB Atlas</li>
+            <li>Managed VS Self-Managed Databases</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 13: Mastering MVC Architecture with Mongoose
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to MVC Architecture</li>
+            <li>Controllers in Action: Organizing Your Application Logic</li>
+            <li>Views Explained: Creating and Managing User Interfaces</li>
+            <li>Introduction to Mongoose and Models</li>
+            <li>
+              Mongoose Query Buffering: Queries Wait for Database Connection
+            </li>
+            <li>Schema and Types in Mongoose</li>
+            <li>CRUD Operation Using Mongoose</li>
+            <li>What are Thenable Objects in JavaScript?</li>
+            <li>What is a Mongoose Query?</li>
+            <li>What are Documents in Mongoose?</li>
+            <li>Integrating Mongoose in Our TodoApp</li>
+            <li>Adding Custom Validation in Mongoose Schema</li>
+            <li>Using Ref and Populate to Fetch Referenced Fields</li>
+            <li>Implementing MVC Architecture in StorageApp</li>
+            <li>Integrating Mongoose in UserController</li>
+            <li>Integrating Mongoose in FileController</li>
+            <li>What are Virtuals in Mongoose?</li>
+            <li>Define Custom Methods on Mongoose Documents</li>
+            <li>Define Custom Static Methods on Mongoose Model</li>
+            <li>What Is Middleware in Mongoose?</li>
+            <li>Understanding Document Middleware</li>
+            <li>Understanding Query Middleware</li>
+            <li>Understanding Model Middleware</li>
+            <li>Introduction to Indexes in MongoDB</li>
+            <li>Understanding Unique True Property of Mongoose Schema</li>
+            <li>Creating Unique Index for Email in Our StorageApp</li>
+            <li>Document Versioning in Mongoose</li>
+            <li>Understanding Mongoose Object</li>
+            <li>
+              Mongoose Built-in Error Types
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >ValidationError</code
+              >,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >MongoServerError</code
+              >, etc.
+            </li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 14: Mastering Authentication and Authorization in Node.js
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Authentication and Authorization</li>
+            <li>Stateful vs Stateless Auth</li>
+            <li>Limitations of Auth in Our Storage App</li>
+            <li>Trying to Fix Cookie Expiry Issue</li>
+            <li>Cryptography Basics: Understanding Encryption vs Hashing</li>
+            <li>Basics of Hashing</li>
+            <li>
+              Hashing in Node.js Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >crypto</code
+              >
+              Module
+            </li>
+            <li>How Git Uses Hashing for Commits?</li>
+            <li>Understanding Digital Signatures</li>
+            <li>Signing Cookies in Node.js</li>
+            <li>Understanding MAC and HMAC</li>
+            <li>
+              Signing Cookies Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >cookie-parser</code
+              >
+            </li>
+            <li>Hashing Passwords Before Saving to the Database</li>
+            <li>What Are Rainbow Tables?</li>
+            <li>Understanding Key Derivation Functions</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >pbkdf2()</code
+              >
+              to Hash Passwords
+            </li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >bcrypt</code
+              >
+            </li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >bcrypt</code
+              >
+              to Hash Passwords
+            </li>
+            <li>Understanding JSON Web Tokens</li>
+            <li>Do Not Use JWT for Login</li>
+            <li>What Are Sessions?</li>
+            <li>Stateful vs Stateless Servers</li>
+            <li>Overview of Our New LMS App</li>
+            <li>Adding Guest Session in Our LMS App</li>
+            <li>Implementing Cart Functionality</li>
+            <li>Adding Get and Delete Routes for Cart</li>
+            <li>Adding Authorized Sessions in LMS App</li>
+            <li>Moving Cart Data to Cart Collection</li>
+            <li>Implementing Logout and Session Expiry Functionality</li>
+            <li>
+              Auto-Deleting Documents in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >MongoDB</code
+              >
+            </li>
+            <li>Implementing Sessions in Storage App</li>
+            <li>Restricting Multiple Device Access</li>
+            <li>Implementing Logout from All Devices Functionality</li>
+            <li>Sending Emails Using Node.js</li>
+            <li>Sending Email With Custom Domain</li>
+            <li>Verifying Email Using OTP</li>
+            <li>Understanding OAuth and Its Flow</li>
+            <li>Understanding OpenID Connect and Its Flow</li>
+            <li>Client Registration for Google OAuth Integration</li>
+            <li>Understanding Google’s OpenID Connect</li>
+            <li>How to Open a Popup for Google Login?</li>
+            <li>Creating a Different Page for Redirect URL</li>
+            <li>Implementing Login With Google on Backend</li>
+            <li>Implementing Logout Functionality</li>
+            <li>Receiving Auth Code on Backend</li>
+            <li>Putting Google Auth Redirect Logic in Backend Code</li>
+            <li>Verifying ID Token</li>
+            <li>Using Google Auth Library to Verify ID Token</li>
+            <li>Using Google Auth Library to Fetch ID Token</li>
+            <li>Using Google Auth Library to Generate AuthURL</li>
+            <li>Calling User Info Endpoint With Access Token</li>
+            <li>
+              Customizing OAuth Login Popup With Prompt and Login Hint
+              Parameters
+            </li>
+            <li>Error Handling in Google Login</li>
+            <li>
+              Implementing Google Login With
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Passport.js</code
+              >
+            </li>
+            <li>Grant Types in OAuth 2.0</li>
+            <li>Understanding Implicit Grant Type</li>
+            <li>Implementing Google Login Using Implicit Grant Type</li>
+            <li>Problem With Implicit Login Flow</li>
+            <li>Enabling One Tap Login and Fixing Implicit Flow Issue</li>
+            <li>GSI vs FedCM</li>
+            <li>Branding Guidelines of Login With Google Button</li>
+            <li>
+              Using GSI Library in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >React.js</code
+              >
+            </li>
+            <li>
+              Adding Google Login in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >StorageApp</code
+              >
+            </li>
+            <li>Wrapping Up Authentication – Next Steps & Assignments</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 15: Understanding Role-Based Access Control (RBAC)
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>
+              What Is
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >RBAC</code
+              >?
+            </li>
+            <li>
+              Implementing
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >GET</code
+              >
+              All Users Endpoint
+            </li>
+            <li>Adding Role-Based Access in Users Route</li>
+            <li>Role-Based UI Rendering</li>
+            <li>Implementing User Logout Functionality</li>
+            <li>Implementing User Delete Feature</li>
+            <li>Implementing Soft Delete for Users</li>
+            <li>Preventing Users from Self-Deletion</li>
+            <li>
+              What is Google
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Zanzibar</code
+              >
+              and OpenFGA?
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >RBAC</code
+              >
+              Assignments for Storage App
+            </li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 16: Working with Redis – Caching, Session Storage, and
+            Beyond
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Redis</li>
+            <li>
+              Installing Redis: Server,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CLI</code
+              >
+              and GUI
+            </li>
+            <li>Data Types in Redis</li>
+            <li>Working with Strings in Redis</li>
+            <li>
+              Time-to-Live (<code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >TTL</code
+              >): Expiring Keys in Redis
+            </li>
+            <li>Database Management in Redis</li>
+            <li>Organizing Redis Keys with Namespacing</li>
+            <li>
+              Connecting Redis in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+            </li>
+            <li>
+              Creating
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >getJSON()</code
+              >
+              and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >setJSON()</code
+              >
+              Methods
+            </li>
+            <li>
+              Working with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >RedisJSON</code
+              >
+              Data Type
+            </li>
+            <li>Redis vs MongoDB: Speed Test</li>
+            <li>Using Redis for Caching</li>
+            <li>Using Redis as Session Store</li>
+            <li>Understanding Redis Search and Indexing</li>
+            <li>Fixing Multiple Device Access</li>
+            <li>Working with Redis Search in GUI</li>
+            <li>
+              Exploring Redis Extension for
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >VSCode</code
+              >
+            </li>
+            <li>What is Fuzzy Search in Redis?</li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >SCAN</code
+              >
+              Command in Redis
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >KEYS</code
+              >
+              vs
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >SCAN</code
+              >
+              Command in Redis
+            </li>
+            <li>
+              Working with Redis
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Lists</code
+              >
+              Data Type
+            </li>
+            <li>
+              Working with Redis
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Sets</code
+              >
+              Data Type
+            </li>
+            <li>
+              Working with Redis
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Hashes</code
+              >
+              Data Type
+            </li>
+            <li>
+              Working with Redis Hashes in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+            </li>
+            <li>
+              Real-Time Messaging with Redis
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Pub/Sub</code
+              >
+            </li>
+            <li>Enabling Authentication in Redis</li>
+            <li>Understanding Eviction Policies in Redis</li>
+            <li>Exploring Redis Cloud</li>
+            <li>More Topics to Explore in Redis</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 17: Securing Our Node.js Application
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Importance of Security in Web Apps</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >.env</code
+              >
+              File in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+              Natively
+            </li>
+            <li>
+              Storing Sensitive Info in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >.env</code
+              >
+              File
+            </li>
+            <li>Understanding SQL Injection Vulnerability</li>
+            <li>Schema-Based Data Validation With Zod</li>
+            <li>Prevent SQL Injection: Validate User Input With Zod</li>
+            <li>Understanding Same-Origin Policy</li>
+            <li>Hacking the Web: Learn XSS Attacks Practically</li>
+            <li>
+              Fix XSS Vulnerability Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >DOMPurify</code
+              >
+            </li>
+            <li>Types of XSS Attacks</li>
+            <li>Understanding Reflected XSS Attack</li>
+            <li>What Is DOM-Based XSS Attack?</li>
+            <li>Understanding Content Security Policy in Depth</li>
+            <li>Reporting CSP Violations</li>
+            <li>Using Inline Scripts With Hash</li>
+            <li>Using Inline Scripts With Nonce</li>
+            <li>Performing Self-XSS Attack Even After CSP Is Enabled</li>
+            <li>What Is Clickjacking?</li>
+            <li>Understanding Domain Attribute in Cookies</li>
+            <li>Understanding Top-Level Navigation</li>
+            <li>
+              Creating Self-Signed HTTPS Server in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+            </li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >SameSite</code
+              >
+              Cookie Attribute in Depth
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >SameSite</code
+              >
+              Cookies Attribute With Cross-Site Fetch Requests
+            </li>
+            <li>Understanding Cross-Site Request Forgery (CSRF) Attacks</li>
+            <li>Preventing CSRF Attacks With CSRF Tokens</li>
+            <li>Creating a CSRF Token Middleware</li>
+            <li>Preventing CSRF Attacks Using Custom Headers</li>
+            <li>Understanding Denial of Service (DoS) Attack</li>
+            <li>Protecting APIs With Rate Limiting</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >express-rate-limit</code
+              >
+              Package
+            </li>
+            <li>Understanding DDoS Attack</li>
+            <li>Important Security Headers You Should Know</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Helmet.js</code
+              >
+              for Adding Security Headers
+            </li>
+            <li>Add API Throttling With Custom Throttle Function</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >express-slow-down</code
+              >
+              Package for Throttling
+            </li>
+            <li>Benefits of Throttling</li>
+            <li>Drawbacks of Throttling</li>
+            <li>Dynamic Throttling vs Adaptive Throttling</li>
+            <li>Rate Limiting vs Throttling</li>
+            <li>Searching Security Vulnerabilities in Storage App</li>
+            <li>What Are Dependency Vulnerabilities?</li>
+            <li>More Security Topics to Know</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 18: Cloud Storage Integration with AWS S3
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Showing Size of Each File</li>
+            <li>Setting Max File Size Limit</li>
+            <li>Adding Server-Side Validation for Max File Size</li>
+            <li>Implementing Folder Size Feature</li>
+            <li>Adding Total Storage Limit</li>
+            <li>How to Add Path and Breadcrumb Features?</li>
+            <li>Introduction to AWS S3 Bucket</li>
+            <li>Benefits of Using S3 Bucket</li>
+            <li>Serving Files Publicly Using S3 Bucket</li>
+            <li>AWS CLI Introduction and Installation</li>
+            <li>Working with S3 Bucket Using CLI</li>
+            <li>Understanding AWS S3 API Command</li>
+            <li>Managing Bucket Policy Using S3 API</li>
+            <li>What Is AWS CloudShell?</li>
+            <li>Understanding Signed URL in S3</li>
+            <li>Identity and Access Management (IAM) in AWS</li>
+            <li>What Are User Groups in IAM?</li>
+            <li>Understanding IAM Policies</li>
+            <li>Understanding IAM Roles</li>
+            <li>AWS S3 SDK Setup in Node.js</li>
+            <li>S3 CRUD Operations Using Node.js</li>
+            <li>Showing S3 Upload Progress in Node.js</li>
+            <li>Creating GET and PUT Signed URLs Using Node.js</li>
+            <li>Creating Signed URLs Using AWS Presigner Library</li>
+            <li>S3 Storage Classes and Pricing</li>
+            <li>Delivering Content at Lightning Speed with CloudFront CDN</li>
+            <li>Cache Invalidation in CloudFront</li>
+            <li>Securing Files with CloudFront Signed URLs</li>
+            <li>Comparing CloudFront Pricing with S3 Pricing</li>
+            <li>Preparing Our StorageApp for S3 Bucket Integration</li>
+            <li>Uploading to S3 from Browser (CORS Enabled)</li>
+            <li>Integrating S3 Bucket in StorageApp – File Uploads</li>
+            <li>Integrating S3 Bucket in StorageApp – File Downloads</li>
+            <li>Implementing Upload Complete Endpoint for File Verification</li>
+            <li>Implementing Delete Feature for S3 Files</li>
+            <li>Integrating CloudFront in StorageApp</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 19: Razorpay and Stripe Payment Gateway Integration
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Payment Gateway</li>
+            <li>Creating Razorpay Account: Step-by-Step Guide</li>
+            <li>Creating Stripe Account: Step-by-Step Guide</li>
+            <li>Different Ways to Accept Payments with Razorpay and Stripe</li>
+            <li>Enabling International Payments on Razorpay</li>
+            <li>
+              Receiving Payments Using Code in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Razorpay</code
+              >
+            </li>
+            <li>What are Orders in Razorpay?</li>
+            <li>Different States of Payment in Razorpay</li>
+            <li>
+              Using the
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Razorpay API</code
+              >: A Complete Guide
+            </li>
+            <li>
+              Calling Razorpay API Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Fetch</code
+              >
+              with Basic Auth
+            </li>
+            <li>
+              Working with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js SDK</code
+              >
+              of Razorpay
+            </li>
+            <li>Secure Payments with Razorpay Orders</li>
+            <li>Integrating Razorpay in React and Node.js</li>
+            <li>Securing Razorpay Order Creation</li>
+            <li>Loading Razorpay CDN Script Dynamically</li>
+            <li>Custom Checkout in Razorpay</li>
+            <li>Accepting Payments on Stripe Using Payment Links</li>
+            <li>Difference Between Invoice and Receipt</li>
+            <li>What are Line Items?</li>
+            <li>
+              Receiving Amount in the Available Balance in Stripe Test Mode
+            </li>
+            <li>Introduction to Stripe API</li>
+            <li>Core Resources in Stripe</li>
+            <li>
+              Payment Objects in Stripe -
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Checkout Sessions</code
+              >,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Payment Intents</code
+              >, and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Charges</code
+              >
+            </li>
+            <li>Getting Started with Stripe Node.js SDK</li>
+            <li>Creating Checkout Session in Stripe Using Node.js</li>
+            <li>Integrating Stripe in React and Node.js</li>
+            <li>Custom Checkout in Stripe</li>
+            <li>What is a Webhook?</li>
+            <li>Why Do We Need Webhooks in Payment Gateway?</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >ngrok</code
+              >
+              to Make Our Server Public for Testing Webhooks
+            </li>
+            <li>Webhooks in Action</li>
+            <li>Verifying Webhook Signature</li>
+            <li>Understanding Webhooks Retry Logic</li>
+            <li>Automatic Payments with Razorpay Subscriptions</li>
+            <li>Subscription States in Razorpay</li>
+            <li>Creating Razorpay Subscriptions Using Node.js</li>
+            <li>Webhooks in Razorpay</li>
+            <li>Verifying Razorpay Webhook Signature</li>
+            <li>Subscriptions in Stripe</li>
+            <li>Listening to Stripe Subscription Webhook Events</li>
+            <li>Customer Portal in Stripe</li>
+            <li>Integrating Razorpay in StorageApp</li>
+            <li>Assignments for Payment Gateway Integration in StorageApp</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 20: Mastering Deployment and CI/CD Pipelines
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Creating GitHub Repository for StorageApp</li>
+            <li>
+              One Click Deployment with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Netlify</code
+              >
+              and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Render</code
+              >
+            </li>
+            <li>
+              Deploying
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+              Backend on
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >AWS EC2</code
+              >
+            </li>
+            <li>
+              Understanding
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >PM2</code
+              >
+              in Depth: Background Process Management
+            </li>
+            <li>
+              What Is
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+              and How to Install It?
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+              Configuration Deep Dive + Static Server
+            </li>
+            <li>
+              Understanding the Autoindex and Location Directives in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+            </li>
+            <li>
+              Creating Multiple Servers Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+            </li>
+            <li>What Is a Proxy Server? Forward vs Reverse Proxy Explained</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+              as a Reverse Proxy for
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+              Apps
+            </li>
+            <li>
+              Setting Response and Request Headers in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+            </li>
+            <li>
+              Understanding Variables in
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+              Logs Explained: Access Logs and Error Logs
+            </li>
+            <li>
+              Setting Up
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+              Server on
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >AWS EC2</code
+              >
+            </li>
+            <li>HTTP to HTTPS: Enabling SSL Certificate on Our Website</li>
+            <li>
+              Deploying React App on
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >AWS EC2</code
+              >
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >NGINX</code
+              >
+            </li>
+            <li>
+              Deploying React App on
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >S3</code
+              >
+              and
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CloudFront</code
+              >
+              for Lightning Fast Speed⚡
+            </li>
+            <li>
+              Adding Custom Domain + SSL to
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CloudFront</code
+              >
+              with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >ACM</code
+              >
+            </li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Cloudflare</code
+              >
+              for DNS Management
+            </li>
+            <li>
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CloudFront</code
+              >
+              Functions Explained
+            </li>
+            <li>Understanding and Paying AWS Bills</li>
+            <li>
+              Introduction to
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+            </li>
+            <li>What Is DevOps?</li>
+            <li>Automating Deployments with Bash Scripting</li>
+            <li>
+              Create Custom
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+              Pipeline Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Node.js</code
+              >
+              and GitHub Webhooks
+            </li>
+            <li>Verifying GitHub Webhook Signature</li>
+            <li>
+              Creating Custom
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+              Pipeline for Backend
+            </li>
+            <li>
+              Zero Downtime Deployment with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >PM2</code
+              >
+              Cluster Mode
+            </li>
+            <li>
+              Turning Our Laptop Into a
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+              Server
+            </li>
+            <li>What Is GitHub Actions?</li>
+            <li>How to Run Jobs Sequentially?</li>
+            <li>What Are Actions in GitHub Actions?</li>
+            <li>Expressions and Context Objects in GitHub Actions</li>
+            <li>Understanding Environments and Secrets in GitHub Actions</li>
+            <li>Setting Environments Dynamically in GitHub Actions</li>
+            <li>Understanding If Condition in GitHub Actions</li>
+            <li>
+              Creating
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+              Pipeline for Frontend Using GitHub Actions
+            </li>
+            <li>
+              Creating
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >CI/CD</code
+              >
+              Pipeline for Backend Using GitHub Actions
+            </li>
+            <li>Setting Up Self Hosted Runners</li>
+            <li>Assignments for Deployment Section</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 21: Serverless Architecture with AWS Lambda
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>What Is Serverless Computing</li>
+            <li>How AWS Lambda Works</li>
+            <li>Creating Your First Lambda Function</li>
+            <li>
+              Understanding the
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >handler</code
+              >
+            </li>
+            <li>Deploying Lambda Functions on AWS</li>
+            <li>Working with Environment Variables in Lambda</li>
+            <li>Testing and Debugging Lambda Functions</li>
+            <li>
+              Integrating AWS Lambda with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >API Gateway</code
+              >
+            </li>
+            <li>Request and Response Flow Through API Gateway</li>
+            <li>Building a Complete API Using Lambda and API Gateway</li>
+            <li>Securing API Gateway Endpoints</li>
+            <li>Understanding Cold Starts and Performance</li>
+            <li>Pricing Model for Lambda and API Gateway</li>
+            <li>When to Use Serverless vs Traditional Servers</li>
+            <li>Deploying a Full Serverless Backend</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 22: Introduction to Docker & Containerization
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to Docker and Containerization</li>
+            <li>What Is Containerization and Why Use It?</li>
+            <li>Virtual Machines vs. Containers: Key Differences</li>
+            <li>Understanding Docker's Role in Modern Development</li>
+            <li>Installing Docker and Setting Up the Environment</li>
+            <li>Docker Basics for Node.js Applications</li>
+            <li>What Is a Docker Image and a Container?</li>
+            <li>Understanding and Writing a Dockerfile</li>
+            <li>
+              Building and Running a Node.js Application in a Docker Container
+            </li>
+            <li>
+              Essential Docker Commands:
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >docker ps</code
+              >,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >docker images</code
+              >,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >docker logs</code
+              >, and More
+            </li>
+            <li>
+              Working with Docker Compose for Multi-Container Applications
+            </li>
+            <li>What Is Docker Compose and Why Use It?</li>
+            <li>
+              Writing a
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >docker-compose.yml</code
+              >
+              File
+            </li>
+            <li>Running Node.js and MongoDB Together in Docker</li>
+            <li>Using Docker Networks for Service Communication</li>
+            <li>Managing Persistent Data in Docker</li>
+            <li>Understanding Docker Volumes and Bind Mounts</li>
+            <li>Persisting Database Data Using Volumes</li>
+            <li>Hot-Reloading a Node.js App Inside a Container</li>
+            <li>Optimizing Docker Images for Better Performance</li>
+            <li>Reducing Image Size with Multi-Stage Builds</li>
+            <li>
+              Using
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >.dockerignore</code
+              >
+              to Improve Build Efficiency
+            </li>
+            <li>Best Practices for Writing Efficient Dockerfiles</li>
+            <li>Container Networking and Security</li>
+            <li>
+              Understanding Docker Networking: Bridge, Host, and Overlay
+              Networks
+            </li>
+            <li>
+              Running Multiple Services in Containers with Custom Networks
+            </li>
+            <li>Securing Node.js Applications in Docker Containers</li>
+            <li>Managing Environment Variables in Docker</li>
+            <li>Deploying Dockerized Node.js Applications</li>
+            <li>
+              Deploying a Docker Container to a Cloud Server (AWS, DigitalOcean,
+              etc.
+            </li>
+            <li>
+              Hosting a Dockerized Node.js Application Using Nginx as a Reverse
+              Proxy
+            </li>
+            <li>
+              CI/CD Integration with Docker: Connecting with
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >GitHub Actions</code
+              >,
+              <code
+                class="bg-gray-200 dark:bg-gray-700 rounded px-1 py-0.5 font-mono text-sm"
+                >Jenkins</code
+              >, etc.
+            </li>
+            <li>Introduction to Kubernetes for Container Orchestration</li>
+            <li>Why Kubernetes? Basics of Container Orchestration</li>
+            <li>Deploying a Simple Node.js Application on Kubernetes</li>
+            <li>Kubernetes vs. Docker Compose: When to Use What?</li>
+          </ol>
+        </details>
+      </div>
+      <div class="advanced-nodejs-concepts">
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Section 23: Node.js Under the Hood
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Overview of Node.js Architecture</li>
+            <li>Understanding the V8 JavaScript Engine</li>
+            <li>Exploring the Node.js Source Code Repository</li>
+            <li>What Is libuv and Its Role in Node.js?</li>
+            <li>How libuv Handles Asynchronous I/O</li>
+            <li>Exploring the Thread Pool in libuv</li>
+            <li>What Is the Event Loop, and Why Is It Important?</li>
+            <li>Phases of the Event Loop</li>
+            <li>How Node.js Interacts with C++ Code</li>
+            <li>Garbage Collection in V8</li>
+          </ol>
+        </details>
+        <details class="mt-4">
+          <summary class="cursor-pointer text-lg font-semibold md:text-xl">
+            Capstone Project: Building ProCodrr.com from Scratch
+          </summary>
+          <ol class="ml-4 mt-2 list-decimal space-y-3 pl-4">
+            <li>Introduction to the Course Hosting Platform Project</li>
+            <li>Project Overview and Requirements</li>
+            <li>Setting Up the Development Environment</li>
+            <li>Building the User Authentication and Authorization System</li>
+            <li>Implementing User Registration and Login</li>
+            <li>Role-Based Access Control (Students vs. Creators)</li>
+            <li>Creating the Course Management System</li>
+            <li>Designing the Database Schema for Courses</li>
+            <li>Implementing Creator Dashboards for Course Management</li>
+            <li>Adding Course Content (Videos, Documents, Pricing)</li>
+            <li>Course Categorization and Tagging</li>
+            <li>Video Processing with ffmpeg</li>
+            <li>Developing the Student Dashboard</li>
+            <li>Implementing Course Purchase and Enrollment</li>
+            <li>Tracking Student Progress in Courses</li>
+            <li>Managing Student Profiles and Payment Methods</li>
+            <li>Integrating Payment Systems</li>
+            <li>
+              Setting Up Payment Gateways (e.g., RazorPay, Stripe, PayPal)
+            </li>
+            <li>Handling Transactions and Purchase History</li>
+            <li>Delivering Course Content Securely</li>
+            <li>
+              Implementing Video Streaming and Content Security, DRM Protection
+            </li>
+            <li>Providing Downloadable Resources</li>
+            <li>Building the Admin Panel</li>
+            <li>Managing Users, Courses, and Transactions</li>
+            <li>Monitoring Platform Analytics and Reports</li>
+            <li>Search and Filtering Features</li>
+            <li>Implementing Search Functionality for Courses</li>
+            <li>Adding Filters by Category, Price, and Popularity</li>
+            <li>Implementing Coupon Codes Functionality</li>
+            <li>Adding Notifications and Alerts</li>
+            <li>Implementing Email and In-App Notifications</li>
+            <li>Managing Course Updates, New Courses, and Promotions</li>
+            <li>Optimizing Performance and Scalability</li>
+            <li>Ensuring the Platform Can Handle Large Numbers of Users</li>
+            <li>Implementing Caching, Load Balancing, and Clustering</li>
+            <li>Deploying the Platform to Production</li>
+            <li>Deploying on Cloud Platforms (AWS)</li>
+            <li>Managing Environment Variables and Secrets in Production</li>
+            <li>Final Project Review and Launch Preparation</li>
+            <li>Preparing the Platform for Launch</li>
+            <li>Post-Launch Monitoring and Maintenance</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 🌙 DARK MODE TOGGLE
+        const sunIcon = document.querySelector("#sun-icon");
+        const moonIcon = document.querySelector("#moon-icon");
+
+        function setTheme(theme) {
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            moonIcon.classList.remove("hidden");
+            sunIcon.classList.add("hidden");
+          } else {
+            document.documentElement.classList.remove("dark");
+            moonIcon.classList.add("hidden");
+            sunIcon.classList.remove("hidden");
+          }
+        }
+
+        function toggleDarkMode() {
+          const newTheme = document.documentElement.classList.contains("dark")
+            ? "light"
+            : "dark";
+          localStorage.setItem("theme", newTheme);
+          setTheme(newTheme);
+        }
+
+        setTheme(localStorage.getItem("theme") || "dark");
+        sunIcon.addEventListener("click", toggleDarkMode);
+        moonIcon.addEventListener("click", toggleDarkMode);
+
+        // 🧾 PROGRESS TRACKING
+        const PROGRESS_KEY = "nodejs_course_progress";
+        let completedLessons =
+          JSON.parse(localStorage.getItem(PROGRESS_KEY)) || [];
+
+        const allLessons = document.querySelectorAll("li");
+        const progressBar = document.querySelector("#progress-bar");
+        const progressText = document.querySelector("#progress-text");
+
+        // apply saved state
+        allLessons.forEach((li) => {
+          if (completedLessons.includes(li.textContent.trim())) {
+            li.classList.add("completed");
+          }
+        });
+
+        // progress updater
+        function updateProgress() {
+          const total = allLessons.length;
+          const done = completedLessons.length;
+          const percent = total > 0 ? Math.round((done / total) * 100) : 0;
+
+          if (progressBar) {
+            progressBar.style.width = `${percent}%`;
+          }
+
+          if (progressText) {
+            progressText.textContent = `Progress: ${percent}% (${done}/${total} lessons)`;
+          }
+        }
+
+        // handle click on lesson
+        document.addEventListener("click", (e) => {
+          if (e.target.tagName === "LI") {
+            const text = e.target.textContent.trim();
+            e.target.classList.toggle("completed");
+
+            if (e.target.classList.contains("completed")) {
+              if (!completedLessons.includes(text)) completedLessons.push(text);
+            } else {
+              completedLessons = completedLessons.filter((t) => t !== text);
+            }
+
+            localStorage.setItem(
+              PROGRESS_KEY,
+              JSON.stringify(completedLessons)
+            );
+            updateProgress();
+          }
+        });
+
+        // show initial progress
+        updateProgress();
+      });
+    </script>
+  </body>
+</html>

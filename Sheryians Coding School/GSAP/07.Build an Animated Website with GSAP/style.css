@@ -1,0 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+}
+
+#hero{
+  min-height: 100dvh;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.05);
+  height: 100px;
+}
+
+nav ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+nav .logo i{
+  font-size: 2.5rem;
+  display: inline-block;
+  transform: rotate(45deg);
+  font-weight: 900;
+}
+
+nav .logo span{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+nav ul li{
+  list-style: none;
+}
+
+nav ul li a{
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}
+
+nav ul li button{
+  padding: .7rem 1.5rem;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  font-weight: 600;
+  background-color: #FAFAFA;
+  font-family: inherit;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.heroContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 100px);
+  padding: 5vh 5%;
+}
+
+.heroContainer .heroContent{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.heroContainer .heroImage{
+  width: 40%;
+}
+
+.heroContainer .heroContent h1{
+  font-size: 4rem;
+  width: 80%;
+  line-height: 4.5rem;
+  font-weight: 550;
+}
+
+.heroContainer .heroContent p{
+  width: 90%;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.heroContainer .heroContent button{
+  background-color: #000;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+.heroContainer .heroImage img{
+  width: 100%;
+}
+
+.brandLogo{
+  display: flex;
+  padding-inline: 10%;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+#services{
+  min-height: 100dvh;
+  padding: 5dvh 5%;
+}
+
+#services .servicesHeader{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#services .servicesHeader h1{
+  background-color: #BBFF68;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+#services .servicesHeader p{
+  width: 50%;
+}

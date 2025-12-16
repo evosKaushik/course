@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+}
+
+main{
+  height: 100dvh;
+  width: 100%;
+  background-color: #111;
+  padding: 1rem;
+}
+
+.box{
+  height: 300px;
+  width: 300px;
+  background-color: crimson;
+  border-radius: 10px;
+}

@@ -1,0 +1,35 @@
+body{
+    font-family: cursive;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.card:first-child{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: pink;
+    color: green;
+    padding: 1rem;
+    /* width: 130px; */
+    height: 150px;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}

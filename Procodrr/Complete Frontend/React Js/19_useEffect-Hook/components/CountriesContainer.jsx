@@ -1,0 +1,35 @@
+import { useEffect, useState } from "react";
+import CountryCard from "./CountryCard";
+
+const CountriesContainer = ({ query }) => {
+  const  [countriesData, setCountriesData] = useState([])
+
+  useEffect(()=>{
+        fetch(`https://restcountries.com/v3.1/all?fields=name,capital,region,flags,population`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCountriesData(data)
+      });
+  }, [])
+
+
+  console.log(countriesData)
+
+  const countryCardArray = countriesData
+    .filter((country) => country.name.common.toLowerCase().includes(query))
+    .map((country) => {
+      return (
+        <CountryCard
+          key={country.name.common}
+          countryImageUrl={country.flags.svg}
+          countryName={country.name.common}
+          countryPopulation={country.population.toLocaleString("en-IN")}
+          countryRegion={country.region}
+          countryCapital={country.capital?.[0]}
+        />
+      );
+    });
+  return <div className="countries-container">{countryCardArray}</div>;
+};
+
+export default CountriesContainer;

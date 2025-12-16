@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #111;
+}
+
+#string {
+  height: 200px;
+  width: 100%;
+  background-color: crimson;
+}
+
+#string {
+  /* max-width: 800px; */
+  width: 90%;
+  margin: 0 auto;
+  border: 3px dashed red; 
+}
+
+#string svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
