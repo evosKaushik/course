@@ -3,20 +3,26 @@ import gsap from "gsap";
 import { useRef } from "react";
 
 const App = () => {
-  const gsapRef = useRef();
-
+  const boxRef = useRef();
   useGSAP(() => {
-      gsap.to(gsapRef.current, {
-        yPercent: 90,
-        duration: 3,
-        delay: 0.5,
-        ease: "bounce.out",
-      });
+    gsap.from(boxRef.current, {
+      y: -100,
+      opacity: 0,
+      rotate: 360,
+      duration: 1,
+      delay: 1,
     });
-
+  });
   return (
     <main>
-      <div ref={gsapRef} className="box"></div>
+      <div className="container">
+        <div className="circle"></div>
+        <div className="box" ref={boxRef}></div>
+      </div>
+      <div className="kuch">
+        <div className="circle"></div>
+        <div className="box"></div>
+      </div>
     </main>
   );
 };
