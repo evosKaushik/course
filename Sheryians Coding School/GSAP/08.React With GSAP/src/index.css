@@ -17,18 +17,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-.container {
-  padding: 30px;
-  border: 3px solid white;
-  border-radius: 20px;
-}
-.box {
-  height: 200px;
-  width: 200px;
-  background: linear-gradient(to right bottom, rgba(220, 20, 103), crimson);
-  border-radius: 10px;
-  margin: 20px;
+  flex-direction: column;
 }
 
 .circle {
@@ -36,5 +25,18 @@ main {
   width: 200px;
   background: linear-gradient(to right bottom, lightblue, cadetblue);
   margin: 20px;
-  border-radius: 150%;
+  border-radius: 50px;
+}
+
+button {
+  padding: 20px 100px;
+  border-radius: 50px;
+  background: linear-gradient(rgb(48, 201, 193), rgb(60, 179, 112));
+  border: none;
+  color:  #000;
+  font-size: 25px;
+  font-weight: 600;
+}
+button:active{
+  scale: 0.96;
 }

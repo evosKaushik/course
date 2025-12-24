@@ -1,28 +1,28 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useState } from "react";
 
 const App = () => {
-  const boxRef = useRef();
+  const [circle, setCircle] = useState(0);
+  const random = gsap.utils.random(-window.innerWidth, window.innerWidth, 10);
   useGSAP(() => {
-    gsap.from(boxRef.current, {
-      y: -100,
-      opacity: 0,
-      rotate: 360,
-      duration: 1,
-      delay: 1,
+    gsap.to(".circle", {
+      x: circle,
+      borderRadius: circle,
+      duration: 0.5,
     });
-  });
+  }, [circle]);
   return (
     <main>
-      <div className="container">
-        <div className="circle"></div>
-        <div className="box" ref={boxRef}></div>
-      </div>
-      <div className="kuch">
-        <div className="circle"></div>
-        <div className="box"></div>
-      </div>
+      <button
+        onClick={() => {
+          console.log(circle);
+          setCircle(random);
+        }}
+      >
+        Move
+      </button>
+      <div className="circle"></div>
     </main>
   );
 };
