@@ -1,5 +1,4 @@
 
-
 import { useState } from "react";
 
 const Likes = () => {
@@ -15,8 +14,7 @@ const Likes = () => {
         setLikesCount((prevState) => prevState + 1);
       }}
     >
-      {likesCount >= 1000 ? `${likesCount}k` : likesCount} Likes{" "}
-      {String(console.log("running on server"))}
+      {likesCount >= 1000 ? `${likesCount / 1000}k` : likesCount} Likes
     </div>
   );
 };

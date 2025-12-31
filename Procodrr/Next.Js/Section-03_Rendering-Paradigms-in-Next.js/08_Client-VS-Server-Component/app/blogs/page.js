@@ -1,6 +1,7 @@
-'use client'
-
+"use client";
+import Comments from "@/components/Comments";
 import Likes from "@/components/Likes";
+import Views from "@/components/Views";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -34,6 +35,9 @@ const Blogs = () => {
       </nav>
       <div>
         <h1>Welcome to Our Blog</h1>
+        <button onClick={() => console.log("Button Clicked!")}>
+          Click Me!
+        </button>
         <ol className="blog-links">
           <li>
             <Link href="/blogs/1">Blog 1</Link>
@@ -48,8 +52,10 @@ const Blogs = () => {
         <br />
         <div className="blog-links">
           <Suspense fallback={<div>Loading Likes....</div>}>
-          <Likes />
+            <Likes />
           </Suspense>
+          <Comments />
+          <Views />
         </div>
       </div>
     </>
