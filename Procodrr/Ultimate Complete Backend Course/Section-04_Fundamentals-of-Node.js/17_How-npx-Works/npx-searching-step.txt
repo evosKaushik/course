@@ -1,0 +1,14 @@
+What npx does?
+Searches for a file and executes it.
+
+Search Step-1
+    Searches for package.json in current working directory
+    Searches for name key in the json
+    Searches for bin key 
+
+Search Step-2
+    Searches for node_modules\.bin in current working directory
+    And executes this file
+
+Search Step-3
+    Searches package in global npm folder
