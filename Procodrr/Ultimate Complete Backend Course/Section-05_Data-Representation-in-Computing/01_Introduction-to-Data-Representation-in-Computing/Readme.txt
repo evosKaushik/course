@@ -1,0 +1,1 @@
+Introduction to Data Representation in Computing. Computer works in 0 and 1 in physical level and it use binary number system. Computer, Network packet, Wifi thorough lan cable are all data is in 0 and 1
