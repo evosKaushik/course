@@ -5,10 +5,9 @@ const num1 = 2 * 1 + 4 * 10 + 6 * 100 + 5 * 1000;
 const num2 = 7 * 1 + 3 * 10 + 2 * 100;
 
 const digitsToNumber = (digits, radix = 10) => {
-  return digits.reduce(
-    (acc, curr, index) => acc + curr * Math.pow(radix, index),
-    0,
-  );
+  return digits.reduce((acc, curr, index) => {
+    return acc + curr * Math.pow(radix, index);
+  }, 0);
 };
 
 console.log(digitsToNumber(digitsList1));
