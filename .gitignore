@@ -27,19 +27,3 @@ dist-ssr
 *.sln
 *.sw?
 
-//images
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.ico
-*.webp
-*.psd
-*.ai
-*.xcf
-*.tiff
-*.bmp
-*.raw
-*.indd
-*.eps
