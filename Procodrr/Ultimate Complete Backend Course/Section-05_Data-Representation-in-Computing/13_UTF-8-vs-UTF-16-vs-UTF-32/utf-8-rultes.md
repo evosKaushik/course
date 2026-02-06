@@ -1,0 +1,17 @@
+## For 1 byte character
+0xxxxxxx
+
+## For 2 Bytes character
+110xxxxx 10xxxxxx
+11111111 10111111
+
+## For 3 Bytes character
+1110xxxx 10xxxxxx 10xxxxxx
+11101111 10111111 10111111 
+11100000 10100100 10000101
+
+## For 4 Bytes character
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+11110000 10001000 10000000 10000000
+11110000 10011111 10011000 10000111
+
