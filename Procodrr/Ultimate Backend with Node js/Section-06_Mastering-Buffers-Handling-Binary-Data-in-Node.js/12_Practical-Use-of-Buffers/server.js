@@ -3,8 +3,10 @@ import fs from 'fs/promises'
 
 const server = http.createServer((req, res) => {
   req.on("data", async(reqBody) => {
-    console.log(reqBody);
-    await fs.writeFile('image.png', reqBody)
+    const JSONData = JSON.parse(reqBody.toString())
+    console.log(JSONData.FileBuffer)
+    // await fs.writeFile('image.png', reqBody)
+    // await fs.writeFile('text.txt', reqBody)
     console.log('End')
   });
 
