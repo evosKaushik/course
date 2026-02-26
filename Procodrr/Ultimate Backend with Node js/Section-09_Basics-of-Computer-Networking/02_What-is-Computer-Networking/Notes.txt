@@ -1,0 +1,5 @@
+26/2/2026 ✅What is Computer Networking?
+Notes:- 
+A computer networking is a connection and communication between multiple computer 
+They follow protocol to communicate this study of protocol how they talk if know as computer networking
+we can pass movie or any other data between computer if connected to network
