@@ -1,0 +1,21 @@
+27/2/2026 ✅Important Networking Devices
+Notes:- 
+Networking Devices are:-
+#host
+Any thing that consume data and also produce data 
+#repeater
+It is used to increase the internet signal speed it distance it to long
+#hub 
+Used for connecting multiple computer  using one device request goes to all the computer in network and ignore by the un target computers
+#switch 
+use for connecting multiple computer with one device but request only goes to targeted computer
+#router 
+is used to connect multiple computer wireless it is very powerfull it contain a computer inside it
+#bridge 
+used to connect multiple LAN or inter connect router in older days today it not used because router are very smart
+#modem 
+device that modulates and demodulates signals. converts signals between *analog signals* and *digital signals*.
+#access-point 
+it increases the single range of wireless devices  
+#node 
+are same  as host but it only passes the data
