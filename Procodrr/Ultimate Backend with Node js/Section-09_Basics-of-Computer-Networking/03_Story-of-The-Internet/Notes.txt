@@ -24,4 +24,8 @@ SMTP for email
 FTP for file transfer 
 other protocol for different communication  
 
+
 know days the wire are there in deep ocean for fast communication between country 
+
+27/2/2026 ✅Story of DNS 
+Notes:- 

@@ -1,0 +1,15 @@
+27/2/2026 ✅Story of DNS
+Notes:- 
+Before DNS there was so many IP (Internet protocol) this is used to connect to different computer to communicate and each IP was unique
+
+So a girl in a university manage all the IP in a hosts.txt in computer and if any thing update or delete it share to whole internet so all the users and see no.of computer
+
+she categoric that if a commercial business is there it will be .com if government organization so .gov or if non-profit organization so it will be .org
+
+A computer scientize have make a one computer so user can request it and get the IP in term of entering domain name 
+That name was domain name server but correct full from of DNS is domain name system
+
+If also work with telnet( make communication while entering a IP [ CLI APPLICATION ] ) so they implement DNS behind the scenes entering a domain name it return IP of the domain name link then it connect
+
+** How Browser send request
+When enter the URL (Domain Name) it will send the request to domain name then it return the IP of than domain then we connect to that websites
