@@ -1,0 +1,16 @@
+27/2/2026 ✅Story of World Wide Web
+Notes:- 
+Problem:-
+Due to network was limited to only processional use in late 19s
+we share research paper in network by using cli tool telnet
+So they have to enter manually URL of a hyper text 
+
+So a sienites create
+HTML (Hyper Text Markup Language)
+So this file contain Hyper and normal Text
+So we can change the page with a click on that hyper text
+
+HTTP (Hyper text Transfer Protocol) also create by him on TCP protocol
+
+So first browser created to understand HTML file is WWW. Which make easy  
+Know after 5-10 years network can be access by any body
