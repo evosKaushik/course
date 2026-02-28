@@ -1,0 +1,10 @@
+1/3/2026 ✅How does Mobile Internet Work?
+Notes:-
+Tower of different companies provide us 3G,4G,5G internet the Tower is connect to ISP by wire though underground by optic Fiber. Tower convert this light single to radio or electrical signal which is capture by our mobile phone have a special device to capture because WIFI and Internet Tower have different WIFI have less range while Internet Tower can be go upto 10km. 
+
+In mobile there is SIM which is a unique identity  for that Tower which check the details:- which company sim jio, airtel, BSNL also check active recharge. which help to know the tower and provide internet access
+
+IP also assign by the Tower ISP company offices which contain computer and check the details.
+
+We can assume that Tower is just a communication between user and ISP.
+Tower just convert into the network in wireless 
