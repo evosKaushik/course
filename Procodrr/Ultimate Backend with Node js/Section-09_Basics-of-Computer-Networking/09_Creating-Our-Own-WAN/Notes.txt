@@ -1,0 +1,8 @@
+28/2/2026 ✅Creating Our Own WAN
+Notes:-
+
+We can't truly make it but can be made a smaller version
+
+We can make our own wan by using two router we add a LAN cable to WAN of 2nd routes so it will as 2nd router will be a child of the first router and it will be one way connection
+
+This is how ISP give us there router cable connection to our WAN in router the ISP routers are connect to the cables that are in the sea
