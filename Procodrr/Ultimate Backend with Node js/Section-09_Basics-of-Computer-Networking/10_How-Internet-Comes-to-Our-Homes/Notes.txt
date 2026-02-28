@@ -6,4 +6,5 @@ ISP give cable connection to our to ONT box it convert fiberoptic light data to 
 than to our WIFI it make LAN and the 
 
 **
+
 ISP usually give us private IP address 
