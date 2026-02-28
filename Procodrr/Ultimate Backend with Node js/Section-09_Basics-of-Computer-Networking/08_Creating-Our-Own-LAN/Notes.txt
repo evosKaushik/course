@@ -1,0 +1,11 @@
+28/2/2026 ✅Creating Our Own LAN
+Notes:-
+It was a pure particle video but
+Our Route assign a IP address to each device connect to the router 
+Router is very powerfull thing i have it own memory and cpu it can start it own server 
+by sending the request to the router default gateway that is his IP to will open the router admin panel to update or manage the router settings
+
+in LAN the assign ip address start with 192.168.XXX.XXX the two other digits are assign by router. this is unique IP address for A LAN but if we compare two LAN so the IP can be same also
+
+when we start localhost server it have a reserve IP address when we send the request it loop back the request to the local server the IP 127.0.0.1
+the local server also open if we send the request on the computer assign IP address
