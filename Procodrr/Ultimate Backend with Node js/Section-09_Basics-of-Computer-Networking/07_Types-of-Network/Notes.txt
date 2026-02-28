@@ -1,0 +1,15 @@
+27/2/2026 ✅Types of Network
+Notes:- 
+
+This are three important network type:-
+
+## LAN (Local Area Network) the network is limited around the building, homes,  offices.
+## MAN (Metropolitan Area Network) this network is limited around the city
+## WAN (Wide Area Network) this is example of Network and it connect  country or limited it whole earth
+
+******************************
+
+# CAP (Camps Area Network)
+# PAN (Personal Area Network) the network is limited till a room all the devices like PC, Laptop, Smartwatch or a Smart TV   
+# BAN (Body Area Network) It is limited near the body like headphone smartwatch 
+# SAN (Storage Area Network) It connect all the storage devices
