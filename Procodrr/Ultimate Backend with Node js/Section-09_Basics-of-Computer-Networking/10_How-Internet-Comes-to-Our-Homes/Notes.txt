@@ -1,0 +1,9 @@
+28/2/2026 ✅How Internet Comes to Our Homes?
+Notes:-
+Internet feel use to wireless but is does not it is wireless in LAN PAN but WAN is a truly wire connection even MAN.
+
+ISP give cable connection to our to ONT box it convert fiberoptic light data to electric to transfer thought Ethernet
+than to our WIFI it make LAN and the 
+
+**
+ISP usually give us private IP address 
