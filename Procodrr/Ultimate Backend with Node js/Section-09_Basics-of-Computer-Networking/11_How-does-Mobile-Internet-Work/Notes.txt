@@ -5,6 +5,7 @@ Tower of different companies provide us 3G,4G,5G internet the Tower is connect t
 In mobile there is SIM which is a unique identity  for that Tower which check the details:- which company sim jio, airtel, BSNL also check active recharge. which help to know the tower and provide internet access
 
 IP also assign by the Tower ISP company offices which contain computer and check the details.
+IP is assign is usually Private IP Address
 
 We can assume that Tower is just a communication between user and ISP.
 Tower just convert into the network in wireless 
