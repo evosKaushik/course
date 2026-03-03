@@ -1,0 +1,9 @@
+3/3/2026 ✅Connecting Our IP Address with a Domain Name
+Notes:- 
+We use domain provider like Hostinger, GoDaddy and other. TO buy the domain names
+and connect the Domain names with the server IP Address 
+It's take some time to register the Domain Name to the DNS server
+
+for the subdomain like subdomain.mainDomain.com
+we have to add the subdomain that also call cName
+
