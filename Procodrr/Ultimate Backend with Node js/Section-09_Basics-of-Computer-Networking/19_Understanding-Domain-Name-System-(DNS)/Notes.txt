@@ -1,0 +1,26 @@
+3/3/2026 ✅Understanding Domain Name System (DNS)
+Notes:- Domain is divided into parts
+Example:
+
+www.google.com. 
+
+In last we not add any dot. By default browser add the dot splitty
+This dots help the DNS Server to easily search for domains as tree
+
+Root-Level Domain(RLD) it is the last dot after the com. above example
+Top-Level Domain(TLD) it is the dot before the com
+Second-Level Domain(SLD) it is the 3rd dot and the main name that is .google 
+Sub Domain / Third-Level Domain it is the before the main domain comes like www or app
+
+It contain more nested Domain as   needed
+
+A domain name contain maximum 253 character 
+Each Divided domain have maximum 63 character like
+
+www.app.procodrr.com //total domain character not exceed 253 character
+	   |
+	  63		// each divided domain like app,procodrr not be more than 63 character
+
+Domain have tree like structure like .com, .net, .org, .in then the top level domain are divided
+the most domain are in .com domain
+
