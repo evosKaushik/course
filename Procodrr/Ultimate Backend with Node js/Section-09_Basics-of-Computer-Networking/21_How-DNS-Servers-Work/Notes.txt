@@ -1,0 +1,31 @@
+3/3/2026 ✅How DNS Servers Work?
+Notes:- 
+
+DNS server have a IP which is just to communicate to server 
+For communication it's not use HTTP protocol it is special protocol for communicating only for DNS that is made on TCP HTTP also made on it 
+DNS have to IP that is IPv4 and IPv6 
+each have to IP to be assign if first server is fail or not responding it can talk to the 2nd server
+IPv6 is faster then IPv4 is recommended to use IPv6 instead IPv4
+
+A Command is used to check the IP Address form the Domain
+nslookup 
+
+we have to add arguments such as domain name and DNS IP(Optional)
+Example:-
+nslookup domainName.xyz 8.8.8.8 // 8.8.8.8 is google DNS 1.1.1.1 is Cloudflare DNS and other DNS Server
+It will give the DNS server Name and Address
+And also the domain Name and it's IP
+if the Domain IP is obtain through cashes it show Non-authoritative 
+
+
+DNS work as:-
+First it check for cashes of IP of that domain If not
+The OS also cashes the IP if not available then it check to the DNS Server
+Server also have cashes if not available it check to the Root Server this server will check for the Root Level Domain then  if get like .com it send to top-Level Domain Server it is check and as go like in the DNA Tree goes 
+
+When the IP is obtain the Server will Cashes it then the OS then Brower also Cashes
+
+TTLs:-
+IT is the time when the cashed IP will expired in the Brower, OS and Etc.
+The more time it will be the more performance as it browser have to not search it take directly form cashed
+For changing IP it recommended to add less time 
