@@ -1,0 +1,3 @@
+5/3/2026 ✅Turning Our Mobile Phone into a Public Server
+Notes:- 
+We can make our mobile into server using IPv6 Address that is public but it is dynamic as when we off and on the mobile data IPv6 Address will change
