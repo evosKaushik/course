@@ -1,0 +1,20 @@
+6/3/2026 ✅Understanding OSI Model
+Notes:- 
+OSI Model stands for (Open Systems Interconnection Model) this describe how data will flow though out the internet it consist of 7 layer this is not any process that follow all the layer. It can follow only few of them also 
+
+All the 7 Layers are: 	
+
+7 Application - It is a user part where user communicate with network though browser like Email and password
+6 Presentation - It encrypt, compress  or format the data. Encryption usually happens when using HTTPS.
+5 Session - Build end to end connection to the destination 
+4 Transport - Data convert into Segment (or Datagram for UDP)
+3 Network - Data break into packet, each segment  gets an IP address and port → becomes a Packet.
+2 Data Link - Packet gets MAC address (Mac of Destination and mac of source )and error check → becomes a Frame. Hip - Hop jump in the network where frame change it mac and some other details
+1 Physical - 	Frame converts into Bits (0 and 1) and travels through cable or Wi-Fi.
+
+
+Receiver Side
+
+The process happens in reverse (Decapsulation):
+
+Bits → Frame → Packet → Segment → Data
