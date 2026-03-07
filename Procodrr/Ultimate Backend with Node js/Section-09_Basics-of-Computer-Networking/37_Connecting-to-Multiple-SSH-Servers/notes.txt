@@ -1,0 +1,10 @@
+7/3/2026 ✅Connecting to Multiple SSH Servers
+Notes:- 
+We have to create config file without extension in .ssh folder in ~ directory
+This help to connect ssh without writing the IP address HostName and password only enter the keyword we set and we will enter
+
+Syntax:-  
+Host keywordName
+ HostName 12.124.52.23 //IP address
+ User ubuntu //HostName
+ IdentityFile ~/.ssh/private-key //Private Key of ssh
