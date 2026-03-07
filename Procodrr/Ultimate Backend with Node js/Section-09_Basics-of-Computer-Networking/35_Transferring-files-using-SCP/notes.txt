@@ -1,0 +1,10 @@
+7/3/2026 ✅Transferring files using SCP
+Notes:- 
+SCP is come preinstall in SSH Client when we install it
+
+SCP stands for Secure Copy Protocol
+
+It is use to copy file form client SSH to server SSH
+
+Syntax:-
+scp "filePath to copy" hostName@HostIP:"FilePath where to Copy"
