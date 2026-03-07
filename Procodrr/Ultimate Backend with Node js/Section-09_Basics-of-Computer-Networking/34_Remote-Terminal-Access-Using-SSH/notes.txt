@@ -1,0 +1,6 @@
+7/3/2026 ✅Remote Terminal Access Using SSH
+Notes:- 
+SSH stands for secure shell using this we can have whole access of the terminal of that system and it is secure the
+data travel not in plain text it's is travel in  encrypted form
+
+using ssh hostname@serverIP
