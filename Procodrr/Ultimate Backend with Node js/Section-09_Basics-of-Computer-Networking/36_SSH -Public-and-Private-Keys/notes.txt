@@ -1,0 +1,21 @@
+7/3/2026 ✅SSH Public and Private Keys
+Notes:- 
+In this way we can access our SSH without entering password again and again
+we have to generate a key using
+ssh-keygyen
+It will create public and private key in ~/.ssh
+when key is generate we have
+to paste the public key in ~/.ssh/authrized_keys
+only public key to be paste
+Not expose the Private Key
+know we do
+ssh hostname@hostIP
+it not ask for password
+
+How works
+public key in server SSH take random string encrypt it
+Server SSH server send to client and client SSH decrypt it using the private Key that is in .ssh folder
+Then the Decrypt string match to the Server SSH create then access will get
+
+If our private Key is on custom paste
+we add a -i (i stands for identification file ) flag in ssh and the path of the key
