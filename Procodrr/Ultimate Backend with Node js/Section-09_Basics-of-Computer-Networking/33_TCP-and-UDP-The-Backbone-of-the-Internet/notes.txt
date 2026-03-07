@@ -1,0 +1,21 @@
+7/3/2026 ✅TCP and UDP: The Backbone of the Internet
+Notes:- 
+TCP and UDP are the mainly protocol on which other protocol like HTTP, QUIC, WEBRTC and others. Are made
+
+TCP and UDP are made on Layer-4 
+
+***TCP
+Reliable way data transfer to one point to other
+It's transfer big data in chunk which know as segment
+It's insure that all the data is transfer if not it retry 
+3-way Handshake syn connect to the destination then if syn-ack then it will resend ack
+Every Operating system follow TCP 
+
+***UDP
+Not Reliable data transfer
+It's transfer big data in chunk which know as Datagram
+It's not insure that all the data is transfer. 
+Manly  use in Real Time communication video call 
+Example Zoom, Google meet base on WEBRTC (top of UDP) 
+
+QUIC is made by google which is based on UDP and HTTP version 3 is based on it
