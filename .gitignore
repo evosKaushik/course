@@ -27,3 +27,6 @@ dist-ssr
 *.sln
 *.sw?
 
+# Video
+.mp4
+.mkv
