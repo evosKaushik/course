@@ -1,0 +1,52 @@
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.binIcon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modelContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60dvh;
+  max-width: 90%;
+  width: 720px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 5px 10px 15px rgba(255, 255, 255, 0.185);
+  padding: 1rem 2rem;
+}
+
+.modelbg {
+  position: absolute;
+  height: 100dvh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 0;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.filepath {
+  font-size: 2rem;
+  font-family: fantasy;
+  margin-bottom: 2rem;
+}
+
+.redBtn{
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
