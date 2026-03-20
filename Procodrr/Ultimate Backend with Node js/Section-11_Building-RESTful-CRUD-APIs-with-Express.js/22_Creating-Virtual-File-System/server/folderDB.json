@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "test",
+    "parentID": null,
+    "size": 4353,
+    "content": {
+      "files": [10],
+      "directories": [124, 125]
+    }
+  },
+  {
+    "id": 1,
+    "name": "text",
+    "parentID": 321,
+    "size": 4353,
+    "content": {
+      "files": [12],
+      "directories": [12, 15]
+    }
+  }
+]
