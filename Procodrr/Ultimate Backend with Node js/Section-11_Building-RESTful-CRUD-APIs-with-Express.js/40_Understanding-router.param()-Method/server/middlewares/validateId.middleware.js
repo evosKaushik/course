@@ -1,0 +1,5 @@
+export default function validateId(req, res, next, id) {
+  if (id.length !== 36)
+    return res.status(400).json({ error: `Invalid ID: ${id}` });
+  next();
+}
