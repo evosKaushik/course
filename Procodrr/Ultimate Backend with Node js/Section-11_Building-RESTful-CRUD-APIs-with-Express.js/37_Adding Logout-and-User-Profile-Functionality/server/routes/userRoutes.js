@@ -2,8 +2,16 @@ import express from "express";
 import { writeFile } from "fs/promises";
 import directoriesData from "../directoriesDB.json" with { type: "json" };
 import usersData from "../usersDB.json" with { type: "json" };
+import checkAuth from "../auth.js";
 
 const router = express.Router();
+
+router.get("/", checkAuth, (req, res) => {
+  res.status(200).json({
+    name: req.user.name,
+    email: req.user.email,
+  });
+});
 
 router.post("/register", async (req, res, next) => {
   const { name, email, password } = req.body;
@@ -49,19 +57,19 @@ router.post("/register", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
-
   const user = usersData.find((user) => user.email === email);
-
   if (!user || user.password !== password) {
-    return res.status(404).json({ error: "Invalid credentials" });
+    return res.status(404).json({ error: "Invalid Credentials" });
   }
-
   res.cookie("uid", user.id, {
     httpOnly: true,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    maxAge: 60 * 1000 * 60 * 24 * 7,
   });
-
-  res.status(201).json({ message: "Logged In" });
+  res.json({ message: "logged in" });
+});
+router.post("/logout", checkAuth, async (req, res) => {
+  res.clearCookie('uid')
+  res.status(204).end()
 });
 
 export default router;
