@@ -1,0 +1,11 @@
+30/3/2026 ✅Installing MongoDB Server
+Notes:-
+
+Mongo server is a CLI and the main server of monogoDB
+where Mongo Compass is the Client and the GUI to see the database
+
+we have to enable the server to run in background and also when system reboot and restart it auto run so command like mongosh not give error
+
+We have mongodb extenstion in vscode
+
+all the server and client in mongo are communicate with mongodb protocol on the top TCP
