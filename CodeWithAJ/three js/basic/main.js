@@ -12,50 +12,40 @@ const camera = new Three.PerspectiveCamera(
   1000,
 );
 
-const cube = new Three.Mesh(
-  new Three.BoxGeometry(1.6, 1.2, 2),
-  new Three.MeshStandardMaterial({ color: "red" }),
-);
-
-// const light = new Three.AmbientLight(0x404040, 10);
-
-// scene.add(light);
-// const cap = new Three.Mesh(
-//   new Three.CapsuleGeometry(1,3,0),
-//   new Three.MeshBasicMaterial({ color: "red", wireframe: true }),
-// );
-// const circle = new Three.Mesh(
-//   new Three.CircleGeometry(),
-//   new Three.MeshBasicMaterial({ color: "red", wireframe: true }),
-// );
-// const sphere = new Three.Mesh(
-//   new Three.SphereGeometry(),
-//   new Three.MeshBasicMaterial({ color: "red", wireframe: true }),
-// );
-
-scene.add(cube);
-// scene.add(cap);
-// scene.add(circle);
-// scene.add(sphere);
-
-camera.position.z = 4;
-
-// camera.lookAt(sphere.position);
-// camera.lookAt(circle.position);
-// camera.lookAt(cap.position);
-camera.lookAt(cube.position);
+camera.position.z = 5;
 
 const renderer = new Three.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-// document.body.appendChild(renderer.domElement);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = Three.PCFSoftShadowMap;
+
+const cube = new Three.Mesh(
+  new Three.BoxGeometry(1.6, 1.2, 2),
+  new Three.MeshStandardMaterial({ color: "red", roughness: .4, metalness: .5 }),
+);
+
+cube.castShadow = true
+
+const plane = new Three.Mesh(
+  new Three.PlaneGeometry(10, 10),
+  new Three.MeshStandardMaterial({ color: "white" }),
+);
+
+plane.rotation.x = -Math.PI / 2;
+plane.position.y = -1;
+plane.receiveShadow = true;
+scene.add(cube, plane);
+
+camera.lookAt(cube.position);
 
 renderer.render(scene, camera);
 
-const pointLight = new Three.PointLight(0xffffff, 50);
-pointLight.position.set(2, 3, 4);
+const directionalLight = new Three.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(2, 3, 4);
 
-const pointLightHelper = new Three.PointLightHelper(pointLight, 1)
-scene.add(pointLight, pointLightHelper);
+directionalLight.castShadow = true
+
+scene.add(directionalLight);
 
 window.addEventListener("resize", (e) => {
   const height = window.innerHeight;
@@ -70,14 +60,8 @@ window.addEventListener("resize", (e) => {
 });
 
 const controls = new OrbitControls(camera, renderer.domElement);
-// controls.autoRotate = true;
-// controls.autoRotateSpeed = 4;
-// controls.cursorStyle = "grab";
 controls.enableDamping = true;
-controls.dampingFactor = 0.09;
-
-controls.enableZoom = true;
-
+controls.dampingFactor = 0.04;
 controls.update();
 
 const clock = new Three.Clock();
