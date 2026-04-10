@@ -22,8 +22,32 @@ const db = client.db();
 //   },
 
 // });
+// await db.command({
+//   create: "users",
+//   validator: {
+//     $jsonSchema: {
+//       required: ["name", "age"],
+//       properties: {
+//         _id: {
+//           bsonType: "objectId",
+//         },
+//         name: {
+//           bsonType: "string",
+//           minLength: 5,
+//         },
+//         age: {
+//           bsonType: "int",
+//           minimum: 18,
+//           maximum: 90,
+//         },
+//       },
+//       additionalProperties: false,
+//     },
+//   },
+// });
+
 await db.command({
-  create: "users",
+  collMod: "users",
   validator: {
     $jsonSchema: {
       required: ["name", "age"],
@@ -38,28 +62,16 @@ await db.command({
         age: {
           bsonType: "int",
           minimum: 18,
-          maximum: 80,
+          maximum: 90,
         },
       },
+      
       additionalProperties: false,
     },
   },
+  validationAction: "warn",
+  validationLevel: "strict",
 });
-
-// await db.command({
-//   collMod: "users",
-//   validator: {
-//     name: {
-//       $type: "string",
-//     },
-//     age: {
-//       $type: "int",
-//       $gt: 18,
-//       $lte: 80,
-//     },
-//   },
-//   validationAction: "warn"
-// });
 
 // const collections = await db.listCollections().toArray();
 // console.log(collections[0].options);
