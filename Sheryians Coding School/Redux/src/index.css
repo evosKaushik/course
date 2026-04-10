@@ -15,3 +15,9 @@ body {
   color: #f3f4f6;
   font-family: ui-monospace, Consolas, monospace;
 }
+
+
+.btnContainer button{
+  padding: .5rem 2rem;
+  margin-inline: 8px;
+}
