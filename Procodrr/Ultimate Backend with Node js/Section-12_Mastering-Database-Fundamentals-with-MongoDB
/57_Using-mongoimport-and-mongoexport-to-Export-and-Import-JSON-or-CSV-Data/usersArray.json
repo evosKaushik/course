@@ -1,0 +1,16 @@
+[
+  {
+    "_id": { "$oid": "69d324576112152c7090890b" },
+    "name": "Test",
+    "email": "kaushik@gmail.com",
+    "password": "12345678",
+    "rootDirId": { "$oid": "69d324576112152c7090890a" }
+  },
+  {
+    "_id": { "$oid": "69dbb6897b720c7cd83e38f3" },
+    "name": "Test",
+    "email": "kaushikes@gmail.com",
+    "password": "12345678",
+    "rootDirId": { "$oid": "69dbb6897b720c7cd83e38f2" }
+  }
+]
