@@ -18,93 +18,87 @@ try {
           name: {
             bsonType: "string",
             minLength: 3,
-            maxLength: 20,
-            description: "name must be more than 3 character",
-        },
-        email: {
+            description:
+              "name field should a string with at least three characters",
+          },
+          email: {
             bsonType: "string",
-            description: "invalid email",
+            description: "please enter a valid email",
+            pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$",
           },
           password: {
             bsonType: "string",
             minLength: 4,
-            maxLength: 20,
           },
           rootDirId: {
             bsonType: "objectId",
           },
         },
-        additionalProperties: true,
+        additionalProperties: false,
       },
     },
     validationAction: "error",
     validationLevel: "strict",
   });
+
   await db.command({
     [command]: "directories",
     validator: {
       $jsonSchema: {
         bsonType: "object",
-        required: ["_id", "name", "parentDirId", "userId"],
+        required: ["_id", "name", "userId", "parentDirId"],
         properties: {
           _id: {
             bsonType: "objectId",
           },
           name: {
             bsonType: "string",
-            minLength: 3,
-            maxLength: 20,
-          },
-          parentDirId: {
-            bsonType: ["objectId", "null"],
           },
           userId: {
             bsonType: "objectId",
           },
+          parentDirId: {
+            bsonType: ["objectId", "null"],
+          },
         },
-        additionalProperties: true,
+        additionalProperties: false,
       },
     },
     validationAction: "error",
     validationLevel: "strict",
   });
+
   await db.command({
     [command]: "files",
     validator: {
       $jsonSchema: {
         bsonType: "object",
-        required: ["_id", "name", "extension", "parentDirId", "userId"],
+        required: ["_id", "name", "extension", "userId", "parentDirId"],
         properties: {
           _id: {
             bsonType: "objectId",
           },
           name: {
             bsonType: "string",
-            minLength: 3,
-            maxLength: 20,
           },
           extension: {
             bsonType: "string",
-            minLength: 3,
-            maxLength: 20,
-          },
-          parentDirId: {
-            bsonType: "objectId",
           },
           userId: {
             bsonType: "objectId",
           },
+          parentDirId: {
+            bsonType: ["objectId", "null"],
+          },
         },
-        additionalProperties: true,
+        additionalProperties: false,
       },
     },
     validationAction: "error",
     validationLevel: "strict",
   });
-  console.log("Validation successfully updated!");
-} catch (error) {
-  console.log(error.message);
+} catch (err) {
+  console.log("Error setting up the database", err);
 } finally {
   await client.close();
-  console.log("Client Disconnected!");
 }

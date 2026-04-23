@@ -6,7 +6,7 @@ import fileRoutes from "./routes/fileRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import checkAuth from "./middlewares/authMiddleware.js";
 import { connectDB } from "./config/db.js";
-import "./config/mongoose.js"
+import './config/mongoose.js'
 
 try {
   const db = await connectDB();
@@ -25,7 +25,7 @@ try {
     req.db = db;
     next();
   });
-  
+
   app.use("/directory", checkAuth, directoryRoutes);
   app.use("/file", checkAuth, fileRoutes);
   app.use("/user", userRoutes);

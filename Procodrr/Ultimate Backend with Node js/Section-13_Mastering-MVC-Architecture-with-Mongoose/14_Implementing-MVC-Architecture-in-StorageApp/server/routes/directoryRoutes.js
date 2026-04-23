@@ -1,27 +1,24 @@
 import express from "express";
-import { rm } from "fs/promises";
-import { ObjectId } from "mongodb";
 import validateIdMiddleware from "../middlewares/validateIdMiddleware.js";
+
 import {
   createDirectory,
-  deleteDirectoryById,
-  getDirectoryById,
+  deleteDirectory,
+  getDirectory,
   renameDirectory,
-} from "../controllers/directory.controller.js";
+} from "../controllers/directoryController.js";
 
 const router = express.Router();
 
 router.param("parentDirId", validateIdMiddleware);
 router.param("id", validateIdMiddleware);
 
-router.get("/:id?", getDirectoryById);
+router.get("/:id?", getDirectory);
 
 router.post("/:parentDirId?", createDirectory);
 
-// router.patch("/:id", renameDirectory);
+router.patch("/:id", renameDirectory);
 
-// router.delete("/:id", deleteDirectoryById);
-
-router.route("/:id").patch(renameDirectory).delete(deleteDirectoryById);
+router.delete("/:id", deleteDirectory);
 
 export default router;

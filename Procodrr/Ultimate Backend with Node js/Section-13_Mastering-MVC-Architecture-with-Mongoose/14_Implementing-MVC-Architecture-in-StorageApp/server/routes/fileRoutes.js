@@ -1,21 +1,20 @@
 import express from "express";
-
 import validateIdMiddleware from "../middlewares/validateIdMiddleware.js";
 import {
-  createFile,
   deleteFile,
-  getFileById,
+  getFile,
   renameFile,
-} from "../controllers/file.controller.js";
+  uploadFile,
+} from "../controllers/fileController.js";
 
 const router = express.Router();
 
 router.param("parentDirId", validateIdMiddleware);
 router.param("id", validateIdMiddleware);
 
-router.post("/:parentDirId?", createFile);
+router.post("/:parentDirId?", uploadFile);
 
-router.get("/:id", getFileById);
+router.get("/:id", getFile);
 
 router.patch("/:id", renameFile);
 

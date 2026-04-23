@@ -1,4 +1,3 @@
-import { connect } from "mongoose";
+import mongoose from "mongoose";
 
-await connect("mongodb://admin:admin@localhost/storageApp?authSource=admin")
-console.log("Mongoose connected")
+await mongoose.connect("mongodb://admin:admin@localhost:27017/storageApp?authSource=admin");

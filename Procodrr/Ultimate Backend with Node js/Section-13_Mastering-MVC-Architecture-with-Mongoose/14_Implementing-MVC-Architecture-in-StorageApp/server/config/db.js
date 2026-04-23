@@ -1,6 +1,8 @@
 import { MongoClient } from "mongodb";
 
-export const client = new MongoClient("mongodb://admin:admin@localhost/storageApp?authSource=admin");
+export const client = new MongoClient(
+  "mongodb://admin:admin@localhost:27017/storageApp?authSource=admin"
+);
 
 export async function connectDB() {
   await client.connect();
