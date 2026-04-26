@@ -14,6 +14,7 @@ dist-ssr
 .expo
 .parcel-cache
 *.local
+.qodo
 
 # Editor directories and files
 .vscode
