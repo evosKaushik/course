@@ -7,6 +7,7 @@ export default async function checkAuth(req, res, next) {
 
   console.log("Signed Cookies: ", req.signedCookies);
   if (!token) {
+    res.clearCookie("token");
     return res.status(401).json({ error: "Not logged in!" });
   }
 
