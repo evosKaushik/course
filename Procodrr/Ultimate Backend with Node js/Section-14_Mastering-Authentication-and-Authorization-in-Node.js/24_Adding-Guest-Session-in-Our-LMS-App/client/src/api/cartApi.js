@@ -4,3 +4,8 @@ export const addToCartApi = async (courseId) => {
   const { data } = await axiosInstance.post(`/cart/${courseId}`);
   return data;
 };
+
+export const getCartItemsApi = async () => {
+  const { data } = await axiosInstance.get("/cart");
+  return data;
+}

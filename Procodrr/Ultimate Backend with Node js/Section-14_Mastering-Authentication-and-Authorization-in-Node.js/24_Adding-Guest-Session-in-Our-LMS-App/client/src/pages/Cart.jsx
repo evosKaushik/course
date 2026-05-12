@@ -1,12 +1,14 @@
 import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem";
+import { getCartItemsApi } from "../api/cartApi";
+import { useEffect } from "react";
 
 export default function Cart() {
   const { cart } = useCart();
 
   const total = cart.reduce(
     (sum, item) => sum + item.price * (item.quantity || 1),
-    0
+    0,
   );
 
   if (cart.length === 0) {
@@ -23,6 +25,8 @@ export default function Cart() {
       </div>
     );
   }
+
+ 
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

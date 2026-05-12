@@ -1,9 +1,18 @@
 import CourseCard from "../components/CourseCard";
 import { getAllCoursesApi } from "../api/courseApi";
+import { getCartItemsApi } from "../api/cartApi";
+import { useCart } from "../context/CartContext";
+import { useEffect } from "react";
 
-const {courses} = await getAllCoursesApi();
+const { courses } = await getAllCoursesApi();
+const { courseIds: cartItems } = await getCartItemsApi();
+
 
 export default function Home() {
+  const { addToCart } = useCart();
+  useEffect(() => {
+    cartItems.forEach((item) => addToCart(item));
+  }, []);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">

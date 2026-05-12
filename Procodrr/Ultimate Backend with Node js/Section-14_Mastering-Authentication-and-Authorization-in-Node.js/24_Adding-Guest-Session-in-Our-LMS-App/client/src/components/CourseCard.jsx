@@ -5,6 +5,7 @@ import { addToCartApi } from "../api/cartApi";
 export default function CourseCard({ name, price, image, _id }) {
   const { addToCart } = useCart();
 
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-indigo-500 transition-colors">
       <img src={image} alt={name} className="w-full h-48 object-cover" />

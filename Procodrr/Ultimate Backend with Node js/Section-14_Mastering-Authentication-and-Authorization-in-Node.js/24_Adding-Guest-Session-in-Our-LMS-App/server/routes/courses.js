@@ -8,9 +8,7 @@ const router = express.Router();
 // GET all courses
 router.get("/", async (req, res) => {
   try {
-    const sessionId = req.cookies.sid;
-
-    console.log(sessionId);
+    const sessionId = req.signedCookies.sid;
     const courses = await Course.find();
     if (!sessionId) {
       const session = await Session.create({});
@@ -23,6 +21,7 @@ router.get("/", async (req, res) => {
 
     res.json({ courses });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: error.message });
   }
 });
