@@ -1,0 +1,30 @@
+import express from "express";
+import Course from "../models/Course.js";
+
+import Session from "../models/Session.js";
+
+const router = express.Router();
+
+// GET all courses
+router.get("/", async (req, res) => {
+  try {
+    const sessionId = req.cookies.sid;
+
+    console.log(sessionId);
+    const courses = await Course.find();
+    if (!sessionId) {
+      const session = await Session.create({});
+      res.cookie("sid", session.id, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 60 * 60 * 1000, // 1 hour
+      });
+    }
+
+    res.json({ courses });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default router;
