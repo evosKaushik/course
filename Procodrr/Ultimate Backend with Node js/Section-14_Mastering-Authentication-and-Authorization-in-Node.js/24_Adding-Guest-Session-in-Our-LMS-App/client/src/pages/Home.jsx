@@ -11,7 +11,7 @@ const { courseIds: cartItems } = await getCartItemsApi();
 export default function Home() {
   const { addToCart } = useCart();
   useEffect(() => {
-    cartItems.forEach((item) => addToCart(item));
+    cartItems?.forEach((item) => addToCart(item));
   }, []);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
