@@ -1,12 +1,25 @@
 import { useState } from "react";
+import { registerUserApi } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 export default function Register() {
   const [name, setName] = useState("Shubham Semwal");
   const [email, setEmail] = useState("shubham@gmail.com");
   const [password, setPassword] = useState("shubham@123");
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ name, email, password });
+
+    try {
+      const data = await registerUserApi({ name, email, password });
+      console.log(data);
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (

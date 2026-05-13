@@ -1,11 +1,28 @@
 import React, { useState } from "react";
+import { loginUserApi } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 export default function Login() {
   const [email, setEmail] = useState("shubham@gmail.com");
   const [password, setPassword] = useState("shubham@123");
-
-  const handleSubmit = (e) => {
+  const { setUser } = useAuth();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
+
+    try {
+      const {user} = await loginUserApi({ email, password });
+      console.log(user);
+      setUser({
+        name: user.name,
+        email: user.email,
+      });
+      setTimeout(() => {
+        navigate("/", { replace: true });
+      }, 1000);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
