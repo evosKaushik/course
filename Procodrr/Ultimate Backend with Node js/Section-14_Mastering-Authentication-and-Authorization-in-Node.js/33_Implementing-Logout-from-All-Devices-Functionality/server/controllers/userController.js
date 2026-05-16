@@ -9,8 +9,6 @@ export const register = async (req, res, next) => {
   const { name, email, password } = req.body;
   const session = await mongoose.startSession();
 
-  const hashedPassword = await bcrypt.hash(password, 12);
-
   try {
     const rootDirId = new Types.ObjectId();
     const userId = new Types.ObjectId();
@@ -32,7 +30,7 @@ export const register = async (req, res, next) => {
         _id: userId,
         name,
         email,
-        password: hashedPassword,
+        password,
         rootDirId,
       },
       { session },
@@ -65,7 +63,7 @@ export const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  const isMatched = await bcrypt.compare(password, user.password);
+  const isMatched = await user?.comparePassword(password);
 
   if (!user) {
     return res.status(404).json({ error: "Invalid Credentials" });
