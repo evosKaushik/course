@@ -4,4 +4,6 @@ import bcrypt from "bcrypt";
 
 const hashPassword = await bcrypt.hash("password", "$2b$14$STYk1PryEKER3RJ.VZEIVe")
 
+const isCorrect = await bcrypt.compare("password", hashPassword);
+
 console.log(hashPassword);
