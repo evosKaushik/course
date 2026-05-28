@@ -98,6 +98,6 @@ userSchema.pre("insertMany", function (docs) {
 
 const User = model("User", userSchema);
 
-// await User.init();
+await User.init();
 
 export default User;

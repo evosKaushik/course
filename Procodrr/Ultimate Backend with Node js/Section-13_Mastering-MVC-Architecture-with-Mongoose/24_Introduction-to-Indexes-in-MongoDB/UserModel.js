@@ -29,6 +29,7 @@ const userSchema = new Schema(
         "Please enter a valid email",
       ],
     },
+    password: String,
     hobbies: {
       type: [String],
     },
@@ -52,7 +53,7 @@ const userSchema = new Schema(
       },
       hobbiesString: {
         get() {
-          return this.hobbies.join(", ");
+          return this.hobbies?.join(", ");
         },
         set(value) {
           this.hobbies = [...this.hobbies, ...value.split(", ")];
@@ -72,8 +73,26 @@ const userSchema = new Schema(
       },
     },
 
+    statics: {
+      finedOneByName(name) {
+        return this.findOne({ name });
+      },
+    },
   },
 );
+
+userSchema.pre("insertMany", function (docs) {
+  console.log(docs);
+  for(const doc of docs){
+    doc.password = doc.name + doc.age
+  }
+  console.log(this);
+  console.log("Running InsertMany middleware");
+  // this.find({ age: { $gte: 18 } }).select("name _id");
+});
+// userSchema.post("save", function (document) {
+//   console.log(document);
+// });
 
 const User = model("User", userSchema);
 
