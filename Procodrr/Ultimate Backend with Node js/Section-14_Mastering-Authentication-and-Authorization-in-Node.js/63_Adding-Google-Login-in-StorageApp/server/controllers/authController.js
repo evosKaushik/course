@@ -76,13 +76,13 @@ export const loginWithGoogle = async (req, res, next) => {
         { session: mongooseSession },
       );
 
-      const allSessions = await Session.find({ userId: existingUser._id });
+      const allSessions = await Session.find({ userId: newUser?._id });
 
       if (allSessions.length >= 2) {
         await allSessions[0].deleteOne();
       }
 
-      const session = await Session.create({ userId: existingUser._id });
+      const session = await Session.create({ userId: newUser?._id });
 
       res.cookie("sid", session.id, {
         httpOnly: true,
