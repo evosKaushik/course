@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./UsersPage.css";
 import { fetchAllUsersApi } from "./apis/usersApi";
-import {useNavigate} from "react-router-dom"
+import {useNavigate, redirect} from "react-router-dom"
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
@@ -21,7 +21,7 @@ export default function UsersPage() {
       const users = await fetchAllUsersApi();
       if(users.error){
         
-        navigate("/")
+        throw redirect("/");
       }
       setUsers(users);
       console.log(users);
