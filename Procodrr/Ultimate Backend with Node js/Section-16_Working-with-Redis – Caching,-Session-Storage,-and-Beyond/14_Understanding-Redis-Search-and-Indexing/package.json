@@ -1,0 +1,15 @@
+{
+  "name": "14_understanding-redis-search-and-indexing",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "redis": "^6.0.0"
+  }
+}
