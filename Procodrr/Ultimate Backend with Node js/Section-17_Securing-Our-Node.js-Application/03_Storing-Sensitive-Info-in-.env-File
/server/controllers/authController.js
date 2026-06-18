@@ -1,0 +1,186 @@
+import mongoose, { Types } from "mongoose";
+import OTP from "../models/otpModel.js";
+import User from "../models/userModel.js";
+import Directory from "../models/directoryModel.js";
+import Session from "../models/sessionModel.js";
+
+import { sendOtpService } from "../services/sendOtpService.js";
+import { verifyIdToken } from "../services/googleAuthService.js";
+import githubAuth from "../services/githubAuthService.js";
+import { addSessionToRedis } from "../services/session.js";
+
+export const sendOtp = async (req, res, next) => {
+  const { email } = req.body;
+  const resData = await sendOtpService(email);
+  res.status(201).json(resData);
+};
+
+export const verifyOtp = async (req, res, next) => {
+  const { email, otp } = req.body;
+  const otpRecord = await OTP.findOne({ email, otp });
+
+  if (!otpRecord) {
+    return res.status(400).json({ error: "Invalid or Expired OTP!" });
+  }
+
+  return res.json({ message: "OTP Verified!" });
+};
+
+export const loginWithGoogle = async (req, res, next) => {
+  const { idToken } = req.body;
+  const userData = await verifyIdToken(idToken?.credential);
+  const { email, name, picture, sub } = userData;
+
+  const existingUser = await User.findOne({ email }).select("-__v").lean();
+
+  if (existingUser) {
+    if (existingUser.isDeleted)
+      return res.status(403).json({
+        error: "Your account is deleted try to contact to your admin",
+      });
+    const sessionId = crypto.randomUUID();
+
+            addSessionToRedis(sessionId, {
+        userId: existingUser._id,
+        rootDirId: existingUser.rootDirId,
+      });
+
+    res.cookie("sid", sessionId, {
+      httpOnly: true,
+      signed: true,
+      maxAge: 60 * 1000 * 60 * 24 * 7,
+    });
+    res.json({ message: "logged in", user: existingUser });
+  } else {
+    const mongooseSession = await mongoose.startSession();
+
+    try {
+      const rootDirId = new Types.ObjectId();
+      const userId = new Types.ObjectId();
+
+      mongooseSession.startTransaction();
+
+      await Directory.insertOne(
+        {
+          _id: rootDirId,
+          name: `root-${email}`,
+          parentDirId: null,
+          userId,
+        },
+        { session: mongooseSession },
+      );
+
+      const newUser = await User.insertOne(
+        {
+          _id: userId,
+          name,
+          email,
+          picture,
+          rootDirId,
+        },
+        { session: mongooseSession },
+      );
+
+      const sessionId = crypto.randomUUID();
+
+      addSessionToRedis(sessionId, {
+        userId: newUser._id,
+        rootDirId: newUser.rootDirId,
+      });
+
+      res.cookie("sid", sessionId, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 60 * 1000 * 60 * 24 * 7,
+      });
+      mongooseSession.commitTransaction();
+      res.json({ message: "logged in", user: existingUser });
+    } catch (err) {
+      mongooseSession.abortTransaction();
+      next(err);
+    }
+  }
+};
+
+export const loginWithGithub = async (req, res, next) => {
+  const { idToken: code } = req.body;
+
+  const redirectUri = "http://localhost:5173";
+  const token = await githubAuth.getToken(code, redirectUri);
+
+  const {
+    avatar_url: picture,
+    email,
+    name,
+  } = await githubAuth.getUserInfo(token);
+
+  const existingUser = await User.findOne({ email }).select("-__v").lean();
+
+  if (existingUser) {
+    if (existingUser.isDeleted)
+      return res.status(403).json({
+        error: "Your account is deleted try to contact to your admin",
+      });
+    const sessionId = crypto.randomUUID();
+
+         addSessionToRedis(sessionId, {
+        userId: existingUser._id,
+        rootDirId: existingUser.rootDirId,
+      });
+
+    res.cookie("sid", sessionId, {
+      httpOnly: true,
+      signed: true,
+      maxAge: 60 * 1000 * 60 * 24 * 7,
+    });
+    res.json({ message: "logged in", user: existingUser });
+  } else {
+    const mongooseSession = await mongoose.startSession();
+
+    try {
+      const rootDirId = new Types.ObjectId();
+      const userId = new Types.ObjectId();
+
+      mongooseSession.startTransaction();
+
+      await Directory.insertOne(
+        {
+          _id: rootDirId,
+          name: `root-${email}`,
+          parentDirId: null,
+          userId,
+        },
+        { session: mongooseSession },
+      );
+
+      const newUser = await User.insertOne(
+        {
+          _id: userId,
+          name,
+          email,
+          picture,
+          rootDirId,
+        },
+        { session: mongooseSession },
+      );
+
+      const sessionId = crypto.randomUUID();
+
+      addSessionToRedis(sessionId, {
+        userId: newUser._id,
+        rootDirId: newUser.rootDirId,
+      });
+
+      res.cookie("sid", sessionId, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 60 * 1000 * 60 * 24 * 7,
+      });
+      mongooseSession.commitTransaction();
+      res.json({ message: "logged in", user: existingUser });
+    } catch (err) {
+      mongooseSession.abortTransaction();
+      next(err);
+    }
+  }
+};
