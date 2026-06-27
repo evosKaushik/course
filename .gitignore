@@ -31,3 +31,6 @@ dist-ssr
 # Video
 .mp4
 .mkv
+
+.env
+**/.env
