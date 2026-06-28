@@ -23,7 +23,9 @@ app.use((req, res, next) => {
     "Content-Security-Policy",
     "default-src 'self';\
      script-src 'self' https://cdn.tailwindcss.com;\
-     img-src 'self' https://images.unsplash.com",
+     img-src 'self' https://images.unsplash.com;\
+     style-src 'self' 'unsafe-inline';\
+     connect-src 'self' http://localhost:8000",
   );
   next();
 });
