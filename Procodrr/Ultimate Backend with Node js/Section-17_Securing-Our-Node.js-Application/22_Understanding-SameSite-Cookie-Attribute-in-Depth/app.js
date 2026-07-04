@@ -9,7 +9,7 @@ app.use(cookieParser());
 const authMiddleware = (req, res, next) => {
   if (req.cookies.sid || req.url === "/login") {
     return next();
-  }
+  } 
   return res.send(
     'You are not logged in<br> <a href="/login">Login</a>'
   );
