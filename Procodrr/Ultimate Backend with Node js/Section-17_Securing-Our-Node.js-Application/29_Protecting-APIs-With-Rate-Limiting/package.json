@@ -1,0 +1,23 @@
+{
+    "type": "module",
+    "scripts": {
+        "start": "node app.ts",
+        "dev": "node --watch app.ts"
+    },
+    "name": "29_protecting-apis-with-rate-limiting",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.ts",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/express": "^5.0.6",
+        "@types/node": "^26.1.1"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "express": "^5.2.1"
+    }
+}
