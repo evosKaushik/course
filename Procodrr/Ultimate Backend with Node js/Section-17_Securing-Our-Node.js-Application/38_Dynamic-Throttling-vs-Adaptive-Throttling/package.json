@@ -1,0 +1,19 @@
+{
+    "type": "module",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "node --watch app.js"
+    },
+    "name": "30_using-express-rate-limit-package",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "express": "^5.2.1",
+        "express-rate-limit": "^8.5.2"
+    }
+}
