@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline Notes App</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1e293b;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .input-box {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background: #22c55e;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      background: #334155;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+
+  <link rel="manifest" href="data:application/json,%" id="manifest-link" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>📝 Offline Notes</h1>
+
+    <div class="input-box">
+      <input type="text" id="noteInput" placeholder="Write your note..." />
+      <button onclick="addNote()">Save</button>
+    </div>
+
+    <ul id="notesList"></ul>
+  </div>
+
+  <script>
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    function renderNotes() {
+      const list = document.getElementById("notesList");
+      list.innerHTML = "";
+
+      notes.forEach((note, index) => {
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+          ${note}
+          <button onclick="deleteNote(${index})">❌</button>
+        `;
+
+        list.appendChild(li);
+      });
+    }
+
+    function addNote() {
+      const input = document.getElementById("noteInput");
+      const value = input.value.trim();
+
+      if (!value) return;
+
+      notes.push(value);
+      localStorage.setItem("notes", JSON.stringify(notes));
+
+      input.value = "";
+      renderNotes();
+    }
+
+    function deleteNote(index) {
+      notes.splice(index, 1);
+      localStorage.setItem("notes", JSON.stringify(notes));
+      renderNotes();
+    }
+
+    renderNotes();
+
+    // Service Worker
+    if ("serviceWorker" in navigator) {
+      const swCode = `
+        const CACHE_NAME = "offline-notes-v1";
+        const FILES_TO_CACHE = ["/", "/index.html"];
+
+        self.addEventListener("install", (event) => {
+          event.waitUntil(
+            caches.open(CACHE_NAME).then((cache) => {
+              return cache.addAll(FILES_TO_CACHE);
+            })
+          );
+        });
+
+        self.addEventListener("activate", (event) => {
+          event.waitUntil(
+            caches.keys().then((keys) => {
+              return Promise.all(
+                keys.map((key) => {
+                  if (key !== CACHE_NAME) {
+                    return caches.delete(key);
+                  }
+                })
+              );
+            })
+          );
+        });
+
+        self.addEventListener("fetch", (event) => {
+          event.respondWith(
+            caches.match(event.request).then((cached) => {
+              return cached || fetch(event.request);
+            })
+          );
+        });
+      `;
+      const swBlob = new Blob([swCode], { type: "application/javascript" });
+      const swUrl = URL.createObjectURL(swBlob);
+      navigator.serviceWorker.register(swUrl);
+    }
+
+    // Inline manifest
+    (function () {
+      const manifest = {
+        name: "Offline Notes App",
+        short_name: "Notes",
+        start_url: "/",
+        display: "standalone",
+        background_color: "#0f172a",
+        theme_color: "#0f172a",
+        icons: [
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/1250/1250615.png",
+            sizes: "512x512",
+            type: "image/png"
+          }
+        ]
+      };
+      const blob = new Blob([JSON.stringify(manifest)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      document.getElementById("manifest-link").href = url;
+    })();
+  </script>
+</body>
+</html>
