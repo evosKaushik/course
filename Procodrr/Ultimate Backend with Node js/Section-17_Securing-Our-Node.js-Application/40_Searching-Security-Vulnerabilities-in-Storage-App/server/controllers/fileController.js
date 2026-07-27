@@ -31,7 +31,7 @@ export const uploadFile = async (req, res, next) => {
 
     const fullFileName = `${fileId}${extension}`;
 
-    const writeStream = createWriteStream(`./storage/${fullFileName}`);
+    const writeStream = createWriteStream(`${import.meta.dirname}/storage/${fullFileName}`);
     req.pipe(writeStream);
 
     req.on("end", async () => {
@@ -109,7 +109,7 @@ export const deleteFile = async (req, res, next) => {
   }
 
   try {
-    await rm(`./storage/${id}${file.extension}`);
+    await rm(`${import.meta.dirname}/storage/${id}${file.extension}`);
     await file.deleteOne();
     return res.status(200).json({ message: "File Deleted Successfully" });
   } catch (err) {
