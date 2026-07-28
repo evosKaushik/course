@@ -56,4 +56,4 @@ Here’s a breakdown of the standard structure:
 * IAM policies are **JSON-based permission sets**
 * Each **statement** defines **who can do what on which resource**
 * You can create **custom policies** using **Visual Editor** or **JSON**
-* Attach them to **users, groups, or roles** to enforce access control
+* Attach them to **users, groups, or roles** to enforce access control 
