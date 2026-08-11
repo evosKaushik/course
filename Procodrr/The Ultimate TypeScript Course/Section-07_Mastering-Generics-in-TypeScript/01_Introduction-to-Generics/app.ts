@@ -1,7 +1,29 @@
-type str = string;
-type num = number;
-type bool = boolean;
+type FormData<T> = {
+  isValid: boolean;
+  data: T;
+};
 
-type abc = {
-    
-}
+type RegisterForm = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+type loginForm = {
+  isValid: boolean;
+  data: {
+    name: string;
+    email: string;
+  };
+};
+
+const registerFormData: FormData<RegisterForm> = {
+  isValid: true,
+  data: {
+    name: "Hacker",
+    email: "Hacker404@gmail.com",
+    password: "unhackablePassword"
+  },
+};
+
+export {};
