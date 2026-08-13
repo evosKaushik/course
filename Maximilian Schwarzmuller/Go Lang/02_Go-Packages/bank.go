@@ -1,32 +1,30 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+
+	"example.com/bank/fileops"
+	"github.com/Pallinder/go-randomdata"
 )
 
+const accountBalanceFileName = "balance.txt"
+
 func main() {
-	accountBalance, error := getBalanceFormFile()
+	accountBalance, error := fileops.GetFloatFromFile(accountBalanceFileName)
 
 	if error != nil {
 		fmt.Println("Error")
 		fmt.Println(error)
 		fmt.Println("------------------------")
-		panic("Failed to get balance from file. Please check the file and try again.")
+		// panic("Failed to get balance from file. Please check the file and try again.")
 	}
 
 	fmt.Println("Welcome to Go Bank!")
+	fmt.Println("Reach us 24/7", randomdata.PhoneNumber())
 
 	// Loop
 	for {
-		fmt.Println("What do you want to do?")
-		fmt.Println("1. Check balance")
-		fmt.Println("2. Deposit Money")
-		fmt.Println("3. Withdraw money")
-		fmt.Println("4. Exit")
-
+		presentsOptions()
 		// User input
 		var choice int
 
@@ -48,7 +46,7 @@ func main() {
 
 			accountBalance += depositAmount
 			fmt.Println("Balance updated! New amount: ", accountBalance)
-			writeBalanceToFile(accountBalance)
+			fileops.WriteFloatToFile(accountBalance, accountBalanceFileName)
 		case 3:
 			fmt.Print("Your Withdraw: ")
 			withdrawAmount := 0.0
@@ -63,7 +61,8 @@ func main() {
 			}
 			accountBalance -= withdrawAmount
 			fmt.Println("Balance updated! New amount: ", accountBalance)
-			writeBalanceToFile(accountBalance)
+			fileops.WriteFloatToFile(accountBalance, accountBalanceFileName)
+
 		default:
 			if choice <= 0 || choice > 4 {
 				fmt.Println("Invalid choice. Please try again.")
@@ -72,31 +71,6 @@ func main() {
 			fmt.Println("Good Bye :)")
 			return
 		}
-
 	}
 
-}
-
-const accountBalanceFile = "balance.txt"
-
-func writeBalanceToFile(balance float64) {
-	balanceText := fmt.Sprint(balance)
-	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
-}
-
-func getBalanceFormFile() (balance float64, error error) {
-	data, err := os.ReadFile(accountBalanceFile)
-
-	if err != nil {
-		return 1000, errors.New("Failed to find file")
-	}
-
-	balanceText := string(data)
-	balance, err = strconv.ParseFloat(balanceText, 64)
-
-	if err != nil {
-		return 1000, errors.New("Failed to parse stored balance value.")
-	}
-
-	return balance, nil
 }
