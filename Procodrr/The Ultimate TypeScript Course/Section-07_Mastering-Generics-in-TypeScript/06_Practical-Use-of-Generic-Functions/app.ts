@@ -1,10 +1,11 @@
-function mergeObject<T extends object, U extends object>(
-  obj1: T,
-  obj2: U,
-): T & U {
-  return { ...obj1, ...obj2 };
+function map<T, U>(arr: T[], cb: (value: T) => U): U[] {
+  const output = [];
+
+  for (const item of arr) {
+    output.push(cb(item));
+  }
+
+  return output;
 }
 
-const result = mergeObject({ name: "hello" }, { age: 29 })
-
-console.log(result);
+const result = map([1, 2, 3, 4, 5, 6], (el: any) => el * 2);
