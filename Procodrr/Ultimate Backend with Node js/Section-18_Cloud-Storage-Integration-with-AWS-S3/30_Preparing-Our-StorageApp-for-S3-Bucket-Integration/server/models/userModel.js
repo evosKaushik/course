@@ -51,7 +51,7 @@ const userSchema = new Schema(
   },
   {
     strict: "throw",
-  }
+  },
 );
 
 userSchema.pre("save", async function (next) {
