@@ -14,4 +14,4 @@ const url = await getSignedUrl(s3Client, command, {
   signableHeaders: new Set(["content-type"]),
 });
 
-console.log(url);
+
