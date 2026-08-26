@@ -1,5 +1,13 @@
-type PersonType = {
+type PersonType<T extends { name: string }> = T;
+
+let a: PersonType<{
   name: string;
   age: number;
-  email: string;
+}> = {
+  name: "kaushik",
+  age: 21,
 };
+
+
+type Types<T extends U, U> = T
+
