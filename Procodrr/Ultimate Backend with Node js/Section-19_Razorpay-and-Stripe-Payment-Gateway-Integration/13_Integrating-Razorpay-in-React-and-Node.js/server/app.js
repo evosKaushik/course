@@ -25,13 +25,17 @@ app.get("/", (req, res) => {
 
 app.post("/complete-order", async (req, res) => {
   const { orderId } = req.body;
-  const order = await rzpInstance.orders.fetch(order);
+  const order = await rzpInstance.orders.fetch(orderId);
+
+  console.log(order);
 
   if (!order) {
     return res.status(404).json({ message: "Invalid order id" });
   }
 
-  return res.json({ message: "Order Created" });
+  if (order.status === "paid") return res.json({ message: "Order Created" });
+
+  return res.json({ message: "Order Not Created" });
 });
 
 app.post("/create-order", async (req, res) => {

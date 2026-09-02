@@ -215,8 +215,19 @@ function openRazorPayPopup({ orderId, user, course }) {
       courseId: course.id,
       courseName: course.name,
     },
-    handler(res) {
+    handler: async (res) => {
       console.log(res);
+      const orderId = res.razorpay_order_id;
+      const response = await fetch("http://localhost:4000/complete-order", {
+        method: "POST",
+        body: JSON.stringify({ orderId }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      // console.log(result);
+      alert(result.message);
     },
   });
 
