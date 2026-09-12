@@ -1,0 +1,8 @@
+Authenticated: We provided payment setup but not take charge like A trail we provide
+Active: When plan is active and ready to go
+Pending: When auto charge if failed but razor pay retry is not done yet
+Halted: When razor pay field to enable auto payment after multiple attempt
+Cancelled: When user cancel the payment
+Paused: Next life cycle charge will not cut
+Expired: If any payment have not done after a interval we have set
+Completed: When all the life cycle overs
