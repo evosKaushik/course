@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "keywords": [],
+  "type": "module"
+}
