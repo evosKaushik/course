@@ -13,5 +13,8 @@ func main(){
 
 	canDeletePost := isAdmin || (isLogged && hasSubscription)
 
+	
+	fmt.Println("Can Delete Post :",canDeletePost)
+
 	fmt.Println("Can Open Dashboard :",canOpenDashboard)
 }
