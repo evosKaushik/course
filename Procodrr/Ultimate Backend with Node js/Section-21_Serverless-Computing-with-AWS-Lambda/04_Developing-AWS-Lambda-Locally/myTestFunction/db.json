@@ -1,0 +1,17 @@
+[
+    {
+      "title": "Set up project repository",
+      "description": "Initialize Git and push the starter template.",
+      "completed": true
+    },
+    {
+      "title": "Design database schema",
+      "description": "Define fields for tasks, users, and categories.",
+      "completed": false
+    },
+    {
+      "title": "Write API unit tests",
+      "description": "Cover GET, POST, PUT, and DELETE endpoints.",
+      "completed": false
+    }
+  ]
