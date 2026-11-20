@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  ExpressFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.handler
+      Runtime: nodejs24.x
+      MemorySize: 256
+      Timeout: 10
+      Events:
+        ExpressApi:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+
+        ExpressRoot:
+          Type: Api
+          Properties:
+            Path: /
+            Method: ANY
